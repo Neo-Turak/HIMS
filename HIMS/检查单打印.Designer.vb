@@ -22,9 +22,16 @@ Partial Class 检查单打印
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout
+        '
+        '检查单打印
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Name = "检查单打印"
         Me.Text = "检查单打印"
-    End Sub
+        Me.ResumeLayout(false)
+
+End Sub
 End Class
