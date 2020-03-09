@@ -1,27 +1,27 @@
 ﻿'written by:Nura
-Imports System.Data.SqlClient
-Imports System.Data
-Imports System.Data.Sql
 
-Public Class FrmLogin
+Public Class 登录
     'SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory)
 
     Public pwd As String
 
     Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
         If AlreadyRunning() Then
-            MessageBox.Show("Another instance is already running.", "Already Running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("另一个实例在运行中.", "已运行", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.Close()
         Else
             TB_ID.Select()
         End If
+
     End Sub
 
     Private Sub FrmLogin_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         TB_ID.BackColor = Color.FromArgb(19, 108, 152)
         TB_ID.Parent = Me
         MTB_pwd.BackColor = Color.FromArgb(19, 108, 152)
-        ' SkinH_SetAero("YES")
+        Dim int1 As Int32 = 1
+        SkinH_SetAero("YES")
 
     End Sub
 
@@ -32,8 +32,7 @@ Public Class FrmLogin
             var_部门 = lbl_部门.Text
             Me.Hide()
             GC.Collect()
-            MDIForm.Show()
-
+            主窗体.Show()
         End If
 
     End Sub
@@ -69,4 +68,7 @@ Public Class FrmLogin
         End If
     End Sub
 
+    Private Sub B_数据库连接器_Click(sender As Object, e As EventArgs) Handles B_数据库连接器.Click
+        数据库连接测试.Show()
+    End Sub
 End Class

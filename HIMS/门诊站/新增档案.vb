@@ -271,7 +271,7 @@ Public Class 新增档案
     End Sub
 
     Private Sub Btn_更新相片_Click(sender As Object, e As EventArgs)
-        DbaseHelper.store_pic_Sql(PB_相片.Image, TB_患者编号.Text.ToString())
+        DbaseHelper.Store_pic_Sql(PB_相片.Image, TB_患者编号.Text.ToString())
     End Sub
 
     Private Sub Selector(sender As Object, e As EventArgs) Handles CB_婚姻状态.TextChanged, CB_民族.TextChanged, CB_性别.TextChanged, CB_结算方式.TextChanged
@@ -352,4 +352,5 @@ Public Class 新增档案
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
     End Sub
+
 End Class

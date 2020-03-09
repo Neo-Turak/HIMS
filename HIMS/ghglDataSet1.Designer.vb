@@ -20,12 +20,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("ghglDataSet"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("ghglDataSet1"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class ghglDataSet
+Partial Public Class ghglDataSet1
     Inherits Global.System.Data.DataSet
     
-    Private tableDAL_门诊处方_SelectCommand As DAL_门诊处方_SelectCommandDataTable
+    Private table病区分类 As 病区分类DataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class ghglDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("DAL_门诊处方_SelectCommand")) Is Nothing) Then
-                MyBase.Tables.Add(New DAL_门诊处方_SelectCommandDataTable(ds.Tables("DAL_门诊处方_SelectCommand")))
+            If (Not (ds.Tables("病区分类")) Is Nothing) Then
+                MyBase.Tables.Add(New 病区分类DataTable(ds.Tables("病区分类")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class ghglDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property DAL_门诊处方_SelectCommand() As DAL_门诊处方_SelectCommandDataTable
+    Public ReadOnly Property 病区分类() As 病区分类DataTable
         Get
-            Return Me.tableDAL_门诊处方_SelectCommand
+            Return Me.table病区分类
         End Get
     End Property
     
@@ -128,7 +128,7 @@ Partial Public Class ghglDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As ghglDataSet = CType(MyBase.Clone,ghglDataSet)
+        Dim cln As ghglDataSet1 = CType(MyBase.Clone,ghglDataSet1)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -153,8 +153,8 @@ Partial Public Class ghglDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("DAL_门诊处方_SelectCommand")) Is Nothing) Then
-                MyBase.Tables.Add(New DAL_门诊处方_SelectCommandDataTable(ds.Tables("DAL_门诊处方_SelectCommand")))
+            If (Not (ds.Tables("病区分类")) Is Nothing) Then
+                MyBase.Tables.Add(New 病区分类DataTable(ds.Tables("病区分类")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class ghglDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableDAL_门诊处方_SelectCommand = CType(MyBase.Tables("DAL_门诊处方_SelectCommand"),DAL_门诊处方_SelectCommandDataTable)
+        Me.table病区分类 = CType(MyBase.Tables("病区分类"),病区分类DataTable)
         If (initTable = true) Then
-            If (Not (Me.tableDAL_门诊处方_SelectCommand) Is Nothing) Then
-                Me.tableDAL_门诊处方_SelectCommand.InitVars
+            If (Not (Me.table病区分类) Is Nothing) Then
+                Me.table病区分类.InitVars
             End If
         End If
     End Sub
@@ -199,18 +199,18 @@ Partial Public Class ghglDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "ghglDataSet"
+        Me.DataSetName = "ghglDataSet1"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/ghglDataSet.xsd"
+        Me.Namespace = "http://tempuri.org/ghglDataSet1.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableDAL_门诊处方_SelectCommand = New DAL_门诊处方_SelectCommandDataTable()
-        MyBase.Tables.Add(Me.tableDAL_门诊处方_SelectCommand)
+        Me.table病区分类 = New 病区分类DataTable()
+        MyBase.Tables.Add(Me.table病区分类)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Private Function ShouldSerializeDAL_门诊处方_SelectCommand() As Boolean
+    Private Function ShouldSerialize病区分类() As Boolean
         Return false
     End Function
     
@@ -225,7 +225,7 @@ Partial Public Class ghglDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As ghglDataSet = New ghglDataSet()
+        Dim ds As ghglDataSet1 = New ghglDataSet1()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -273,45 +273,29 @@ Partial Public Class ghglDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Delegate Sub DAL_门诊处方_SelectCommandRowChangeEventHandler(ByVal sender As Object, ByVal e As DAL_门诊处方_SelectCommandRowChangeEvent)
+    Public Delegate Sub 病区分类RowChangeEventHandler(ByVal sender As Object, ByVal e As 病区分类RowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class DAL_门诊处方_SelectCommandDataTable
-        Inherits Global.System.Data.TypedTableBase(Of DAL_门诊处方_SelectCommandRow)
+    Partial Public Class 病区分类DataTable
+        Inherits Global.System.Data.TypedTableBase(Of 病区分类Row)
         
-        Private column药品名称 As Global.System.Data.DataColumn
+        Private column编码 As Global.System.Data.DataColumn
         
-        Private column规格 As Global.System.Data.DataColumn
+        Private column病区名 As Global.System.Data.DataColumn
         
-        Private column数量 As Global.System.Data.DataColumn
+        Private column助记码 As Global.System.Data.DataColumn
         
-        Private column单位 As Global.System.Data.DataColumn
-        
-        Private column剂量 As Global.System.Data.DataColumn
-        
-        Private column单价 As Global.System.Data.DataColumn
-        
-        Private column金额 As Global.System.Data.DataColumn
-        
-        Private column用法 As Global.System.Data.DataColumn
-        
-        Private column科室 As Global.System.Data.DataColumn
-        
-        Private column医生 As Global.System.Data.DataColumn
-        
-        Private column日期 As Global.System.Data.DataColumn
-        
-        Private column时间 As Global.System.Data.DataColumn
+        Private column病床数量 As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "DAL_门诊处方_SelectCommand"
+            Me.TableName = "病区分类"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -344,97 +328,33 @@ Partial Public Class ghglDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 药品名称Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property 编码Column() As Global.System.Data.DataColumn
             Get
-                Return Me.column药品名称
+                Return Me.column编码
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 规格Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property 病区名Column() As Global.System.Data.DataColumn
             Get
-                Return Me.column规格
+                Return Me.column病区名
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 数量Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property 助记码Column() As Global.System.Data.DataColumn
             Get
-                Return Me.column数量
+                Return Me.column助记码
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 单位Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property 病床数量Column() As Global.System.Data.DataColumn
             Get
-                Return Me.column单位
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 剂量Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column剂量
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 单价Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column单价
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 金额Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column金额
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 用法Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column用法
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 科室Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column科室
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 医生Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column医生
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 日期Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column日期
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property 时间Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.column时间
+                Return Me.column病床数量
             End Get
         End Property
         
@@ -449,44 +369,50 @@ Partial Public Class ghglDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As DAL_门诊处方_SelectCommandRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As 病区分类Row
             Get
-                Return CType(Me.Rows(index),DAL_门诊处方_SelectCommandRow)
+                Return CType(Me.Rows(index),病区分类Row)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event DAL_门诊处方_SelectCommandRowChanging As DAL_门诊处方_SelectCommandRowChangeEventHandler
+        Public Event 病区分类RowChanging As 病区分类RowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event DAL_门诊处方_SelectCommandRowChanged As DAL_门诊处方_SelectCommandRowChangeEventHandler
+        Public Event 病区分类RowChanged As 病区分类RowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event DAL_门诊处方_SelectCommandRowDeleting As DAL_门诊处方_SelectCommandRowChangeEventHandler
+        Public Event 病区分类RowDeleting As 病区分类RowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event DAL_门诊处方_SelectCommandRowDeleted As DAL_门诊处方_SelectCommandRowChangeEventHandler
+        Public Event 病区分类RowDeleted As 病区分类RowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Sub AddDAL_门诊处方_SelectCommandRow(ByVal row As DAL_门诊处方_SelectCommandRow)
+        Public Overloads Sub Add病区分类Row(ByVal row As 病区分类Row)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddDAL_门诊处方_SelectCommandRow(ByVal 药品名称 As String, ByVal 规格 As String, ByVal 数量 As Byte, ByVal 单位 As String, ByVal 剂量 As String, ByVal 单价 As Decimal, ByVal 金额 As Decimal, ByVal 用法 As String, ByVal 科室 As String, ByVal 医生 As String, ByVal 日期 As Date, ByVal 时间 As System.TimeSpan) As DAL_门诊处方_SelectCommandRow
-            Dim rowDAL_门诊处方_SelectCommandRow As DAL_门诊处方_SelectCommandRow = CType(Me.NewRow,DAL_门诊处方_SelectCommandRow)
-            Dim columnValuesArray() As Object = New Object() {药品名称, 规格, 数量, 单位, 剂量, 单价, 金额, 用法, 科室, 医生, 日期, 时间}
-            rowDAL_门诊处方_SelectCommandRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowDAL_门诊处方_SelectCommandRow)
-            Return rowDAL_门诊处方_SelectCommandRow
+        Public Overloads Function Add病区分类Row(ByVal 编码 As Integer, ByVal 病区名 As String, ByVal 助记码 As String, ByVal 病床数量 As Integer) As 病区分类Row
+            Dim row病区分类Row As 病区分类Row = CType(Me.NewRow,病区分类Row)
+            Dim columnValuesArray() As Object = New Object() {编码, 病区名, 助记码, 病床数量}
+            row病区分类Row.ItemArray = columnValuesArray
+            Me.Rows.Add(row病区分类Row)
+            Return row病区分类Row
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindBy编码(ByVal 编码 As Integer) As 病区分类Row
+            Return CType(Me.Rows.Find(New Object() {编码}),病区分类Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As DAL_门诊处方_SelectCommandDataTable = CType(MyBase.Clone,DAL_门诊处方_SelectCommandDataTable)
+            Dim cln As 病区分类DataTable = CType(MyBase.Clone,病区分类DataTable)
             cln.InitVars
             Return cln
         End Function
@@ -494,91 +420,60 @@ Partial Public Class ghglDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New DAL_门诊处方_SelectCommandDataTable()
+            Return New 病区分类DataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.column药品名称 = MyBase.Columns("药品名称")
-            Me.column规格 = MyBase.Columns("规格")
-            Me.column数量 = MyBase.Columns("数量")
-            Me.column单位 = MyBase.Columns("单位")
-            Me.column剂量 = MyBase.Columns("剂量")
-            Me.column单价 = MyBase.Columns("单价")
-            Me.column金额 = MyBase.Columns("金额")
-            Me.column用法 = MyBase.Columns("用法")
-            Me.column科室 = MyBase.Columns("科室")
-            Me.column医生 = MyBase.Columns("医生")
-            Me.column日期 = MyBase.Columns("日期")
-            Me.column时间 = MyBase.Columns("时间")
+            Me.column编码 = MyBase.Columns("编码")
+            Me.column病区名 = MyBase.Columns("病区名")
+            Me.column助记码 = MyBase.Columns("助记码")
+            Me.column病床数量 = MyBase.Columns("病床数量")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.column药品名称 = New Global.System.Data.DataColumn("药品名称", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column药品名称)
-            Me.column规格 = New Global.System.Data.DataColumn("规格", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column规格)
-            Me.column数量 = New Global.System.Data.DataColumn("数量", GetType(Byte), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column数量)
-            Me.column单位 = New Global.System.Data.DataColumn("单位", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column单位)
-            Me.column剂量 = New Global.System.Data.DataColumn("剂量", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column剂量)
-            Me.column单价 = New Global.System.Data.DataColumn("单价", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column单价)
-            Me.column金额 = New Global.System.Data.DataColumn("金额", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column金额)
-            Me.column用法 = New Global.System.Data.DataColumn("用法", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column用法)
-            Me.column科室 = New Global.System.Data.DataColumn("科室", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column科室)
-            Me.column医生 = New Global.System.Data.DataColumn("医生", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column医生)
-            Me.column日期 = New Global.System.Data.DataColumn("日期", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column日期)
-            Me.column时间 = New Global.System.Data.DataColumn("时间", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.column时间)
-            Me.column药品名称.AllowDBNull = false
-            Me.column药品名称.MaxLength = 50
-            Me.column规格.MaxLength = 50
-            Me.column单位.MaxLength = 4
-            Me.column剂量.MaxLength = 20
-            Me.column用法.MaxLength = 50
-            Me.column科室.AllowDBNull = false
-            Me.column科室.MaxLength = 50
-            Me.column医生.AllowDBNull = false
-            Me.column医生.MaxLength = 50
-            Me.column日期.AllowDBNull = false
-            Me.column时间.AllowDBNull = false
+            Me.column编码 = New Global.System.Data.DataColumn("编码", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.column编码)
+            Me.column病区名 = New Global.System.Data.DataColumn("病区名", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.column病区名)
+            Me.column助记码 = New Global.System.Data.DataColumn("助记码", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.column助记码)
+            Me.column病床数量 = New Global.System.Data.DataColumn("病床数量", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.column病床数量)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.column编码}, true))
+            Me.column编码.AllowDBNull = false
+            Me.column编码.Unique = true
+            Me.column病区名.MaxLength = 50
+            Me.column助记码.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function NewDAL_门诊处方_SelectCommandRow() As DAL_门诊处方_SelectCommandRow
-            Return CType(Me.NewRow,DAL_门诊处方_SelectCommandRow)
+        Public Function New病区分类Row() As 病区分类Row
+            Return CType(Me.NewRow,病区分类Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New DAL_门诊处方_SelectCommandRow(builder)
+            Return New 病区分类Row(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(DAL_门诊处方_SelectCommandRow)
+            Return GetType(病区分类Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.DAL_门诊处方_SelectCommandRowChangedEvent) Is Nothing) Then
-                RaiseEvent DAL_门诊处方_SelectCommandRowChanged(Me, New DAL_门诊处方_SelectCommandRowChangeEvent(CType(e.Row,DAL_门诊处方_SelectCommandRow), e.Action))
+            If (Not (Me.病区分类RowChangedEvent) Is Nothing) Then
+                RaiseEvent 病区分类RowChanged(Me, New 病区分类RowChangeEvent(CType(e.Row,病区分类Row), e.Action))
             End If
         End Sub
         
@@ -586,8 +481,8 @@ Partial Public Class ghglDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.DAL_门诊处方_SelectCommandRowChangingEvent) Is Nothing) Then
-                RaiseEvent DAL_门诊处方_SelectCommandRowChanging(Me, New DAL_门诊处方_SelectCommandRowChangeEvent(CType(e.Row,DAL_门诊处方_SelectCommandRow), e.Action))
+            If (Not (Me.病区分类RowChangingEvent) Is Nothing) Then
+                RaiseEvent 病区分类RowChanging(Me, New 病区分类RowChangeEvent(CType(e.Row,病区分类Row), e.Action))
             End If
         End Sub
         
@@ -595,8 +490,8 @@ Partial Public Class ghglDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.DAL_门诊处方_SelectCommandRowDeletedEvent) Is Nothing) Then
-                RaiseEvent DAL_门诊处方_SelectCommandRowDeleted(Me, New DAL_门诊处方_SelectCommandRowChangeEvent(CType(e.Row,DAL_门诊处方_SelectCommandRow), e.Action))
+            If (Not (Me.病区分类RowDeletedEvent) Is Nothing) Then
+                RaiseEvent 病区分类RowDeleted(Me, New 病区分类RowChangeEvent(CType(e.Row,病区分类Row), e.Action))
             End If
         End Sub
         
@@ -604,14 +499,14 @@ Partial Public Class ghglDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.DAL_门诊处方_SelectCommandRowDeletingEvent) Is Nothing) Then
-                RaiseEvent DAL_门诊处方_SelectCommandRowDeleting(Me, New DAL_门诊处方_SelectCommandRowChangeEvent(CType(e.Row,DAL_门诊处方_SelectCommandRow), e.Action))
+            If (Not (Me.病区分类RowDeletingEvent) Is Nothing) Then
+                RaiseEvent 病区分类RowDeleting(Me, New 病区分类RowChangeEvent(CType(e.Row,病区分类Row), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub RemoveDAL_门诊处方_SelectCommandRow(ByVal row As DAL_门诊处方_SelectCommandRow)
+        Public Sub Remove病区分类Row(ByVal row As 病区分类Row)
             Me.Rows.Remove(row)
         End Sub
         
@@ -620,7 +515,7 @@ Partial Public Class ghglDataSet
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As ghglDataSet = New ghglDataSet()
+            Dim ds As ghglDataSet1 = New ghglDataSet1()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -638,7 +533,7 @@ Partial Public Class ghglDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "DAL_门诊处方_SelectCommandDataTable"
+            attribute2.FixedValue = "病区分类DataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -685,260 +580,108 @@ Partial Public Class ghglDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class DAL_门诊处方_SelectCommandRow
+    Partial Public Class 病区分类Row
         Inherits Global.System.Data.DataRow
         
-        Private tableDAL_门诊处方_SelectCommand As DAL_门诊处方_SelectCommandDataTable
+        Private table病区分类 As 病区分类DataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableDAL_门诊处方_SelectCommand = CType(Me.Table,DAL_门诊处方_SelectCommandDataTable)
+            Me.table病区分类 = CType(Me.Table,病区分类DataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 药品名称() As String
+        Public Property 编码() As Integer
             Get
-                Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.药品名称Column),String)
+                Return CType(Me(Me.table病区分类.编码Column),Integer)
             End Get
             Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.药品名称Column) = value
+                Me(Me.table病区分类.编码Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 规格() As String
+        Public Property 病区名() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.规格Column),String)
+                    Return CType(Me(Me.table病区分类.病区名Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '规格' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column '病区名' in table '病区分类' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.规格Column) = value
+                Me(Me.table病区分类.病区名Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 数量() As Byte
+        Public Property 助记码() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.数量Column),Byte)
+                    Return CType(Me(Me.table病区分类.助记码Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '数量' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column '助记码' in table '病区分类' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.数量Column) = value
+                Me(Me.table病区分类.助记码Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 单位() As String
+        Public Property 病床数量() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.单位Column),String)
+                    Return CType(Me(Me.table病区分类.病床数量Column),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '单位' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column '病床数量' in table '病区分类' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.单位Column) = value
+                Me(Me.table病区分类.病床数量Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 剂量() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.剂量Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '剂量' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.剂量Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 单价() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.单价Column),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '单价' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.单价Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 金额() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.金额Column),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '金额' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.金额Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 用法() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.用法Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column '用法' in table 'DAL_门诊处方_SelectCommand' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.用法Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 科室() As String
-            Get
-                Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.科室Column),String)
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.科室Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 医生() As String
-            Get
-                Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.医生Column),String)
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.医生Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 日期() As Date
-            Get
-                Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.日期Column),Date)
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.日期Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property 时间() As System.TimeSpan
-            Get
-                Return CType(Me(Me.tableDAL_门诊处方_SelectCommand.时间Column),Global.System.TimeSpan)
-            End Get
-            Set
-                Me(Me.tableDAL_门诊处方_SelectCommand.时间Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is规格Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.规格Column)
+        Public Function Is病区名Null() As Boolean
+            Return Me.IsNull(Me.table病区分类.病区名Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set规格Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.规格Column) = Global.System.Convert.DBNull
+        Public Sub Set病区名Null()
+            Me(Me.table病区分类.病区名Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is数量Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.数量Column)
+        Public Function Is助记码Null() As Boolean
+            Return Me.IsNull(Me.table病区分类.助记码Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set数量Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.数量Column) = Global.System.Convert.DBNull
+        Public Sub Set助记码Null()
+            Me(Me.table病区分类.助记码Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is单位Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.单位Column)
+        Public Function Is病床数量Null() As Boolean
+            Return Me.IsNull(Me.table病区分类.病床数量Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set单位Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.单位Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is剂量Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.剂量Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set剂量Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.剂量Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is单价Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.单价Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set单价Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.单价Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is金额Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.金额Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set金额Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.金额Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Is用法Null() As Boolean
-            Return Me.IsNull(Me.tableDAL_门诊处方_SelectCommand.用法Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Set用法Null()
-            Me(Me.tableDAL_门诊处方_SelectCommand.用法Column) = Global.System.Convert.DBNull
+        Public Sub Set病床数量Null()
+            Me(Me.table病区分类.病床数量Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -946,16 +689,16 @@ Partial Public Class ghglDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Class DAL_门诊处方_SelectCommandRowChangeEvent
+    Public Class 病区分类RowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As DAL_门诊处方_SelectCommandRow
+        Private eventRow As 病区分类Row
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New(ByVal row As DAL_门诊处方_SelectCommandRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As 病区分类Row, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -963,7 +706,7 @@ Partial Public Class ghglDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Row() As DAL_门诊处方_SelectCommandRow
+        Public ReadOnly Property Row() As 病区分类Row
             Get
                 Return Me.eventRow
             End Get
@@ -979,7 +722,7 @@ Partial Public Class ghglDataSet
     End Class
 End Class
 
-Namespace ghglDataSetTableAdapters
+Namespace ghglDataSet1TableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -990,7 +733,7 @@ Namespace ghglDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class DAL_门诊处方_SelectCommandTableAdapter
+    Partial Public Class 病区分类TableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -1107,26 +850,59 @@ Namespace ghglDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "DAL_门诊处方_SelectCommand"
-            tableMapping.ColumnMappings.Add("药品名称", "药品名称")
-            tableMapping.ColumnMappings.Add("规格", "规格")
-            tableMapping.ColumnMappings.Add("数量", "数量")
-            tableMapping.ColumnMappings.Add("单位", "单位")
-            tableMapping.ColumnMappings.Add("剂量", "剂量")
-            tableMapping.ColumnMappings.Add("单价", "单价")
-            tableMapping.ColumnMappings.Add("金额", "金额")
-            tableMapping.ColumnMappings.Add("用法", "用法")
-            tableMapping.ColumnMappings.Add("科室", "科室")
-            tableMapping.ColumnMappings.Add("医生", "医生")
-            tableMapping.ColumnMappings.Add("日期", "日期")
-            tableMapping.ColumnMappings.Add("时间", "时间")
+            tableMapping.DataSetTable = "病区分类"
+            tableMapping.ColumnMappings.Add("编码", "编码")
+            tableMapping.ColumnMappings.Add("病区名", "病区名")
+            tableMapping.ColumnMappings.Add("助记码", "助记码")
+            tableMapping.ColumnMappings.Add("病床数量", "病床数量")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[病区分类] WHERE (([编码] = @Original_编码) AND ((@IsNull_病区名 = 1 AND ["& _ 
+                "病区名] IS NULL) OR ([病区名] = @Original_病区名)) AND ((@IsNull_助记码 = 1 AND [助记码] IS NUL"& _ 
+                "L) OR ([助记码] = @Original_助记码)) AND ((@IsNull_病床数量 = 1 AND [病床数量] IS NULL) OR ([病"& _ 
+                "床数量] = @Original_病床数量)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_编码", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "编码", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_病区名", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病区名", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_病区名", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病区名", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_助记码", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "助记码", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_助记码", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "助记码", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_病床数量", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病床数量", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_病床数量", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病床数量", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[病区分类] ([编码], [病区名], [助记码], [病床数量]) VALUES (@编码, @病区名, @助记码, @病"& _ 
+                "床数量);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT 编码, 病区名, 助记码, 病床数量 FROM 病区分类 WHERE (编码 = @编码)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@编码", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "编码", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@病区名", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病区名", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@助记码", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "助记码", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@病床数量", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病床数量", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[病区分类] SET [编码] = @编码, [病区名] = @病区名, [助记码] = @助记码, [病床数量] = @病床数量 WH"& _ 
+                "ERE (([编码] = @Original_编码) AND ((@IsNull_病区名 = 1 AND [病区名] IS NULL) OR ([病区名] = "& _ 
+                "@Original_病区名)) AND ((@IsNull_助记码 = 1 AND [助记码] IS NULL) OR ([助记码] = @Original_助"& _ 
+                "记码)) AND ((@IsNull_病床数量 = 1 AND [病床数量] IS NULL) OR ([病床数量] = @Original_病床数量)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT 编码, 病区名, 助记码, 病床数量 FROM 病区分类 WHERE (编码 = @编码)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@编码", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "编码", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@病区名", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病区名", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@助记码", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "助记码", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@病床数量", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病床数量", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_编码", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "编码", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_病区名", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病区名", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_病区名", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病区名", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_助记码", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "助记码", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_助记码", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "助记码", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_病床数量", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病床数量", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_病床数量", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "病床数量", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
-            ' Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            '  Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             ' Me._connection.ConnectionString = Global.HIMS.My.MySettings.Default.ghglConnectionString
         End Sub
         
@@ -1136,23 +912,16 @@ Namespace ghglDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.DAL_门诊处方_SelectCommand"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@患者编号", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).CommandText = "SELECT 编码, 病区名, 助记码, 病床数量 FROM dbo.病区分类"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As ghglDataSet.DAL_门诊处方_SelectCommandDataTable, ByVal 患者编号 As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As ghglDataSet1.病区分类DataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (患者编号 Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(患者编号,String)
-            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -1164,16 +933,183 @@ Namespace ghglDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal 患者编号 As String) As ghglDataSet.DAL_门诊处方_SelectCommandDataTable
+        Public Overloads Overridable Function GetData() As ghglDataSet1.病区分类DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (患者编号 Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(患者编号,String)
-            End If
-            Dim dataTable As ghglDataSet.DAL_门诊处方_SelectCommandDataTable = New ghglDataSet.DAL_门诊处方_SelectCommandDataTable()
+            Dim dataTable As ghglDataSet1.病区分类DataTable = New ghglDataSet1.病区分类DataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As ghglDataSet1.病区分类DataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As ghglDataSet1) As Integer
+            Return Me.Adapter.Update(dataSet, "病区分类")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_编码 As Integer, ByVal Original_病区名 As String, ByVal Original_助记码 As String, ByVal Original_病床数量 As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_编码,Integer)
+            If (Original_病区名 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_病区名,String)
+            End If
+            If (Original_助记码 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_助记码,String)
+            End If
+            If (Original_病床数量.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_病床数量.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal 编码 As Integer, ByVal 病区名 As String, ByVal 助记码 As String, ByVal 病床数量 As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(编码,Integer)
+            If (病区名 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(病区名,String)
+            End If
+            If (助记码 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(助记码,String)
+            End If
+            If (病床数量.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(病床数量.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal 编码 As Integer, ByVal 病区名 As String, ByVal 助记码 As String, ByVal 病床数量 As Global.System.Nullable(Of Integer), ByVal Original_编码 As Integer, ByVal Original_病区名 As String, ByVal Original_助记码 As String, ByVal Original_病床数量 As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(编码,Integer)
+            If (病区名 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(病区名,String)
+            End If
+            If (助记码 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(助记码,String)
+            End If
+            If (病床数量.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(病床数量.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_编码,Integer)
+            If (Original_病区名 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_病区名,String)
+            End If
+            If (Original_助记码 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_助记码,String)
+            End If
+            If (Original_病床数量.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_病床数量.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal 病区名 As String, ByVal 助记码 As String, ByVal 病床数量 As Global.System.Nullable(Of Integer), ByVal Original_编码 As Integer, ByVal Original_病区名 As String, ByVal Original_助记码 As String, ByVal Original_病床数量 As Global.System.Nullable(Of Integer)) As Integer
+            Return Me.Update(Original_编码, 病区名, 助记码, 病床数量, Original_编码, Original_病区名, Original_助记码, Original_病床数量)
         End Function
     End Class
     
@@ -1190,6 +1126,8 @@ Namespace ghglDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
+        Private _病区分类TableAdapter As 病区分类TableAdapter
+        
         Private _backupDataSetBeforeUpdate As Boolean
         
         Private _connection As Global.System.Data.IDbConnection
@@ -1202,6 +1140,20 @@ Namespace ghglDataSetTableAdapters
             End Get
             Set
                 Me._updateOrder = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property 病区分类TableAdapter() As 病区分类TableAdapter
+            Get
+                Return Me._病区分类TableAdapter
+            End Get
+            Set
+                Me._病区分类TableAdapter = value
             End Set
         End Property
         
@@ -1224,6 +1176,10 @@ Namespace ghglDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
+                If ((Not (Me._病区分类TableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._病区分类TableAdapter.Connection) Is Nothing)) Then
+                    Return Me._病区分类TableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -1237,6 +1193,9 @@ Namespace ghglDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
+                If (Not (Me._病区分类TableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 Return count
             End Get
         End Property
@@ -1246,8 +1205,17 @@ Namespace ghglDataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As ghglDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As ghglDataSet1, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._病区分类TableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.病区分类.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._病区分类TableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -1256,8 +1224,16 @@ Namespace ghglDataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As ghglDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As ghglDataSet1, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._病区分类TableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.病区分类.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._病区分类TableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -1266,8 +1242,16 @@ Namespace ghglDataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As ghglDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As ghglDataSet1, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._病区分类TableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.病区分类.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._病区分类TableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -1302,12 +1286,17 @@ Namespace ghglDataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As ghglDataSet) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As ghglDataSet1) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
             If (dataSet.HasChanges = false) Then
                 Return 0
+            End If
+            If ((Not (Me._病区分类TableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._病区分类TableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
             End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
@@ -1341,6 +1330,15 @@ Namespace ghglDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
+                If (Not (Me._病区分类TableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._病区分类TableAdapter, Me._病区分类TableAdapter.Connection)
+                    Me._病区分类TableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._病区分类TableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._病区分类TableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._病区分类TableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._病区分类TableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -1400,6 +1398,10 @@ Namespace ghglDataSetTableAdapters
             Finally
                 If workConnOpened Then
                     workConnection.Close
+                End If
+                If (Not (Me._病区分类TableAdapter) Is Nothing) Then
+                    Me._病区分类TableAdapter.Connection = CType(revertConnections(Me._病区分类TableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._病区分类TableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

@@ -11,7 +11,7 @@ Public Class 挂号
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_添加档案.Click
         Dim child As New 新增档案 With {
-            .MdiParent = MDIForm
+            .MdiParent = 主窗体
         }
         child.Show()
         child.WindowState = FormWindowState.Normal

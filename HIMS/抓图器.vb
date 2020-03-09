@@ -1,5 +1,4 @@
 ﻿'written by:Nura
-Imports System.Windows.Forms
 
 Public Class 抓图器
     Private bmpFrame As Bitmap

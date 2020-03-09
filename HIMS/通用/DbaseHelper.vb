@@ -5,7 +5,7 @@ Imports System.Drawing.Imaging
 Imports System.IO
 
 Module DbaseHelper
-    Public Const ConStr As String = "server=.;UID=sa;PWD=root;database=ghgl"
+    Public Const ConStr As String = "server=127.0.0.1;UID=sa;PWD=root;database=ghgl;persist Security Info=True;"
 
     Public Function CheckID(ByVal ID As String) As List(Of String)
         Dim lst As New List(Of String)
@@ -26,11 +26,13 @@ Module DbaseHelper
         Return lst
     End Function
 
+    '这个方法用于把图片存储在数据库里
+
     Public Sub Store_pic_Sql(ByVal img As Image, ByVal id As String)
 
         'for sql server
         Dim cn As SqlConnection = New SqlConnection With {
-            .ConnectionString = "Data Source=.;Initial Catalog=ghgl;Persist Security Info=True;User ID=sa;Password=root"
+            .ConnectionString = "Data Source=127.0.0.1;Initial Catalog=ghgl;Persist Security Info=True;User ID=sa;Password=root"
         }
 
         'for SQL
@@ -47,6 +49,7 @@ Module DbaseHelper
         cn.Close()
     End Sub
 
+    '这个方法用于从数据库提取照片
     Public Function Load_Pic_Sql(ByVal id As Integer) As Image
         'for sql server
         Dim conn As SqlConnection = New SqlConnection With {
@@ -60,6 +63,7 @@ Module DbaseHelper
         reader.Read()
         Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
         conn.Close()
+
         Dim mStream As MemoryStream = New MemoryStream(bitPic)
         Dim img As Image = Image.FromStream(mStream)
         Return img
@@ -123,7 +127,7 @@ Module DbaseHelper
         Return value
     End Function
 
-    Public Function 助记码_查询(ByVal remember As String) As DataSet
+    Public Function Get_药品库存(ByVal remember As String) As DataSet
         Dim dset As DataSet
 
         Using cn As New SqlConnection(ConStr)
@@ -257,15 +261,22 @@ Module DbaseHelper
         Dim val As Integer
         Using cn As New SqlConnection(ConStr)
             cn.Open()
-
-            Using sql As New SqlCommand("dbo.DAL_挂号单_InsertCommand")
-                sql.CommandType = CommandType.StoredProcedure
-                sql.Connection = cn
-                sql.Parameters.AddWithValue("@患者编号", 患者编号)
-                sql.Parameters.AddWithValue("@结算方式", 结算方式)
-                sql.Parameters.AddWithValue("@状态", 状态)
-                val = sql.ExecuteNonQuery
-            End Using
+            '为了解决SQL引起的错误，引用了Try...
+            Try
+                Using sql As New SqlCommand("dbo.DAL_挂号单_InsertCommand")
+                    sql.CommandType = CommandType.StoredProcedure
+                    sql.Connection = cn
+                    sql.Parameters.AddWithValue("@患者编号", 患者编号)
+                    sql.Parameters.AddWithValue("@结算方式", 结算方式)
+                    sql.Parameters.AddWithValue("@状态", 状态)
+                    val = sql.ExecuteNonQuery
+                End Using
+            Catch ex As SqlException
+                MsgBox("出现错误:" + ex.Message, MsgBoxStyle.Information)
+            Finally
+                cn.Close()
+            End Try
+            'try 结束
             cn.Close()
         End Using
         GC.Collect()
@@ -406,13 +417,15 @@ Module DbaseHelper
         Return result
     End Function
 
-    Public Function Get_住院单() As DataSet
+    Public Function Get_住院单(ByVal ID As String) As DataSet
         Get_住院单 = New DataSet
         Using cn As New SqlConnection(ConStr)
             cn.Open()
-            Using sql As New SqlCommand("select * from 住院单详情 where 状态='待收费'")
+            Using sql As New SqlCommand("[dbo].[DAL_住院单_ID_SelectCommand]")
                 sql.Connection = cn
-                sql.CommandType = CommandType.Text
+                sql.CommandType = CommandType.StoredProcedure
+                sql.Parameters.AddWithValue("@患者ID", ID)
+
                 Using da As New SqlDataAdapter
                     da.SelectCommand = sql
                     da.Fill(Get_住院单)
@@ -421,6 +434,22 @@ Module DbaseHelper
             cn.Close()
         End Using
         Return Get_住院单
+    End Function
+
+    Public Function Get_住院单_待就诊() As DataSet
+        Get_住院单_待就诊 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("Select * from 住院单 where 状态='待就诊'")
+                sql.Connection = cn
+                sql.CommandType = CommandType.Text
+                Using da As New SqlDataAdapter
+                    da.SelectCommand = sql
+                    da.Fill(Get_住院单_待就诊)
+                End Using
+            End Using
+        End Using
+        Return Get_住院单_待就诊
     End Function
 
     Public Sub Del_住院单(ByVal ID As Integer, 患者编号 As String)
@@ -434,5 +463,155 @@ Module DbaseHelper
             cn.Close()
         End Using
     End Sub
+
+    Public Function Get_检查科室() As List(Of String)
+        Get_检查科室 = New List(Of String)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select * from 检查科室") With {
+                .Connection = cn,
+                .CommandType = CommandType.Text
+                }
+                Using dr As SqlDataReader = sql.ExecuteReader
+                    If dr.HasRows Then
+                        Do While dr.Read
+                            Get_检查科室.Add(dr.GetString(0))
+                        Loop
+                    End If
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Function Get_检查项目名称(ByVal 科室 As String) As List(Of String)
+        Get_检查项目名称 = New List(Of String)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select 项目名称 from 检查项目 where 所属科室='" & 科室 & "' and 是否可用=1 ORDER by ID") With {
+                .Connection = cn,
+                .CommandType = CommandType.Text
+                }
+
+                Using dr As SqlDataReader = sql.ExecuteReader
+                    If dr.HasRows Then
+                        Do While dr.Read
+                            Get_检查项目名称.Add(dr.GetString(0))
+                        Loop
+                    End If
+                End Using
+            End Using
+            cn.Close()
+        End Using
+    End Function
+
+    Public Function Get_检查项(ByVal 科室 As String, ByVal 子项 As String) As DataSet
+        Get_检查项 = New DataSet("检查项")
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select 项目名称,单位,价格 from 检查项目 where 所属科室='" & 科室 & "' and 项目名称='" & 子项 & "' and 是否可用=1 ORDER by ID") With {
+                .Connection = cn,
+                .CommandType = CommandType.Text
+                }
+                Using dr As SqlDataReader = sql.ExecuteReader
+                    Get_检查项.Load(dr, 1, "检查项")
+                End Using
+            End Using
+            cn.Close()
+        End Using
+
+    End Function
+
+    Public Function Get_检查单(ByVal 患者编号 As String) As DataSet
+        Get_检查单 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("dbo.DAL_检查单_SelectCommand") With {
+                .CommandType = CommandType.StoredProcedure,
+                .Connection = cn
+                }
+                sql.Parameters.AddWithValue("@患者编号", 患者编号)
+
+                '*******两种填充方式********
+                '***********第一种,数据适配器*************
+                'sql.ExecuteNonQuery()
+                'Using dr As New SqlDataAdapter
+                '  dr.SelectCommand = sql
+                '  dr.Fill(Get_检查单)
+                '****注:不能于with通用,先执行后填充
+                '****数据适配器主动
+                '*********第二种,数据阅载器************
+                Using dr As SqlDataReader = sql.ExecuteReader
+                    Get_检查单.Load(dr, LoadOption.OverwriteChanges, "检查单")
+                    '*******使用简单,反向操作，数据装载方式**********
+                    '*****数据集主动
+                End Using
+            End Using
+            cn.Close()
+        End Using
+    End Function
+
+    Public Sub Add_检查单(ByVal 患者编号 As String, ByVal 检查科室 As String, ByVal 检查项目 As String, ByVal 单位 As String, ByVal 价格 As Single, ByVal 申请科室 As String, ByVal 申请医师 As String, ByVal 状态 As String)
+        Dim var_检查科室 As SqlParameter = New SqlParameter
+        Dim var_患者编号 As SqlParameter = New SqlParameter
+
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("dbo.DAL_检查单_InsertCommand") With {
+                .CommandType = CommandType.StoredProcedure,
+                .Connection = cn
+                }
+                '避免外键连接出错。
+                sql.Parameters.Add("@患者编号", SqlDbType.NVarChar, 10).Value = 患者编号
+                sql.Parameters.Add("@检查科室", SqlDbType.NVarChar, 50).Value = 检查科室
+                '  sql.Parameters.AddWithValue("@检查科室", 检查科室)
+                sql.Parameters.AddWithValue("@检查项目", 检查项目)
+                sql.Parameters.AddWithValue("@单位", 单位)
+                sql.Parameters.AddWithValue("@价格", 价格)
+                sql.Parameters.AddWithValue("@申请科室", 申请科室)
+                sql.Parameters.AddWithValue("@申请医师", 申请医师)
+                sql.Parameters.AddWithValue("@状态", 状态)
+                sql.ExecuteNonQuery()
+            End Using
+        End Using
+
+    End Sub
+
+    Public Function Get_病区分类() As DataSet
+        Get_病区分类 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select 病区名 from 病区分类") With {
+                .CommandType = CommandType.Text,
+                .Connection = cn
+                }
+                sql.ExecuteNonQuery()
+                Using dr As New SqlDataAdapter
+                    dr.SelectCommand = sql
+                    dr.Fill(Get_病区分类)
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Function Get_客户端连接数() As Int32
+
+        Dim count As Int32
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("SELECT COUNT(dbid) FROM sys.sysprocesses;")
+                sql.CommandType = CommandType.Text
+                sql.Connection = cn
+                Using dr As SqlDataReader = sql.ExecuteReader()
+                    dr.Read()
+                    '必须进行读取操作
+                    count = Convert.ToInt32(dr.GetValue(0))
+                    dr.Close()
+                End Using
+                sql.Dispose()
+            End Using
+            cn.Close()
+        End Using
+        Return count
+    End Function
 
 End Module

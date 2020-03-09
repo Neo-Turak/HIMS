@@ -1,18 +1,18 @@
 ﻿'written by:Nura
 Imports System.ComponentModel
 
-Public Class MDIForm
+Public Class 主窗体
 
     Private Sub MDIForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' SkinH_AttachEx("E:\dll\skins\china.she", "yes")
-        ' SkinH_SetAero("OK")
+        SkinH_AttachEx("\skins\skins\china.she", "yes")
+        SkinH_SetAero("OK")
         DownMenu_科室.Text = var_部门
         DownMenu_医生.Text = var_就诊医生
-
+        TSPB_服务器状态.Value = DbaseHelper.Get_客户端连接数
     End Sub
 
     Private Sub 退出ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 退出ToolStripMenuItem.Click
-        '  SkinH_DetachEx("E:\dll\skins\whitefire.she")
+        'SkinH_DetachEx("skins\whitefire.she")
         If vbYes = MessageBox.Show("确定要退出吗？", "退出提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
             Application.Exit()
             Dispose(True)
@@ -71,4 +71,14 @@ Public Class MDIForm
         d.Show()
     End Sub
 
+    Private Sub 屏保ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 屏保ToolStripMenuItem.Click
+        Dim d As New 屏保 With {
+      .MdiParent = Me
+      }
+        d.Show()
+    End Sub
+
+    Private Sub TSPB_服务器状态_Click(sender As Object, e As EventArgs) Handles TSPB_服务器状态.Click
+        Message(Me.TSPB_服务器状态.ToolTipText, 1, "当前连接数")
+    End Sub
 End Class

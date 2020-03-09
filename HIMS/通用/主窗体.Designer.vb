@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MDIForm
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class 主窗体
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MDIForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.门诊医生工作站ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,6 +35,7 @@ Partial Class MDIForm
         Me.手术记录ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.管理模板ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.诊断参考管理ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.入院单名单ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.退出ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.药房工作站ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -69,7 +70,7 @@ Partial Class MDIForm
         Me.DownMenu_医生 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.入院单名单ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSPB_服务器状态 = New System.Windows.Forms.ToolStripProgressBar()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -93,20 +94,20 @@ Partial Class MDIForm
         '就诊ToolStripMenuItem
         '
         Me.就诊ToolStripMenuItem.Name = "就诊ToolStripMenuItem"
-        Me.就诊ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.就诊ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.就诊ToolStripMenuItem.Text = "就诊"
         '
         '挂号单ToolStripMenuItem
         '
         Me.挂号单ToolStripMenuItem.Name = "挂号单ToolStripMenuItem"
-        Me.挂号单ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.挂号单ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.挂号单ToolStripMenuItem.Text = "挂号单"
         '
         '查询管理ToolStripMenuItem
         '
         Me.查询管理ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.患者信息ToolStripMenuItem, Me.挂号记录ToolStripMenuItem, Me.就诊记录ToolStripMenuItem, Me.检查记录ToolStripMenuItem, Me.住院记录ToolStripMenuItem, Me.手术记录ToolStripMenuItem})
         Me.查询管理ToolStripMenuItem.Name = "查询管理ToolStripMenuItem"
-        Me.查询管理ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.查询管理ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.查询管理ToolStripMenuItem.Text = "查询管理"
         '
         '患者信息ToolStripMenuItem
@@ -149,7 +150,7 @@ Partial Class MDIForm
         '
         Me.管理模板ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.诊断参考管理ToolStripMenuItem})
         Me.管理模板ToolStripMenuItem.Name = "管理模板ToolStripMenuItem"
-        Me.管理模板ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.管理模板ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.管理模板ToolStripMenuItem.Text = "管理模板"
         '
         '诊断参考管理ToolStripMenuItem
@@ -158,15 +159,21 @@ Partial Class MDIForm
         Me.诊断参考管理ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.诊断参考管理ToolStripMenuItem.Text = "诊断参考管理"
         '
+        '入院单名单ToolStripMenuItem
+        '
+        Me.入院单名单ToolStripMenuItem.Name = "入院单名单ToolStripMenuItem"
+        Me.入院单名单ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.入院单名单ToolStripMenuItem.Text = "预入院单名单"
+        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         '退出ToolStripMenuItem
         '
         Me.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem"
-        Me.退出ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.退出ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.退出ToolStripMenuItem.Text = "退出"
         '
         '药房工作站ToolStripMenuItem
@@ -329,7 +336,7 @@ Partial Class MDIForm
         'StatusStrip1
         '
         Me.StatusStrip1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.DownMenu_科室, Me.ToolStripStatusLabel2, Me.DownMenu_医生, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.DownMenu_科室, Me.ToolStripStatusLabel2, Me.DownMenu_医生, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.TSPB_服务器状态})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 426)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(800, 24)
@@ -377,34 +384,37 @@ Partial Class MDIForm
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
         Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(0, 19)
         '
-        '入院单名单ToolStripMenuItem
+        'TSPB_服务器状态
         '
-        Me.入院单名单ToolStripMenuItem.Name = "入院单名单ToolStripMenuItem"
-        Me.入院单名单ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.入院单名单ToolStripMenuItem.Text = "预入院单名单"
+        Me.TSPB_服务器状态.AutoToolTip = True
+        Me.TSPB_服务器状态.MarqueeAnimationSpeed = 0
+        Me.TSPB_服务器状态.Name = "TSPB_服务器状态"
+        Me.TSPB_服务器状态.Size = New System.Drawing.Size(100, 18)
+        Me.TSPB_服务器状态.Step = 1
+        Me.TSPB_服务器状态.ToolTipText = "客户端对当前服务器的连接数。为了保证服务器的正常运行，当多个客户端进行批量操作，服务器会自动断开这些连接。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'MDIForm
+        '主窗体
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = true
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.IsMdiContainer = true
+        Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "MDIForm"
+        Me.Name = "主窗体"
         Me.Text = "医院管理系统"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.MenuStrip1.ResumeLayout(false)
-        Me.MenuStrip1.PerformLayout
-        Me.StatusStrip1.ResumeLayout(false)
-        Me.StatusStrip1.PerformLayout
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents 门诊医生工作站ToolStripMenuItem As ToolStripMenuItem
@@ -454,4 +464,5 @@ End Sub
     Friend WithEvents 计算器ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Friend WithEvents 入院单名单ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TSPB_服务器状态 As ToolStripProgressBar
 End Class

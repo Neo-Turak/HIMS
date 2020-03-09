@@ -5,7 +5,7 @@ Public Class 挂号单
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.WindowState = FormWindowState.Normal
-        Me.DataGridView1.DataSource = DbaseHelper.get_挂号单详情.Tables(0).AsDataView
+        Me.DataGridView1.DataSource = DbaseHelper.Get_挂号单详情.Tables(0).AsDataView
     End Sub
 
 End Class

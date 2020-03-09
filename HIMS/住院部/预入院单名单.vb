@@ -3,7 +3,7 @@ Public Class 预入院单名单
 
     Private Sub Btn_更新_Click(sender As Object, e As EventArgs) Handles Btn_更新.Click
         DataGridView1.DataSource = vbNull
-        DataGridView1.DataSource = DbaseHelper.Get_住院单.Tables(0).DefaultView
+        DataGridView1.DataSource = DbaseHelper.Get_住院单_待就诊().Tables(0).DefaultView
 
     End Sub
 

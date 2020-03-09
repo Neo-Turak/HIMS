@@ -23,7 +23,6 @@ Partial Class 门诊医生工作站
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.lbl_参合号 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -63,6 +62,8 @@ Partial Class 门诊医生工作站
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.Btn_退院 = New System.Windows.Forms.Button()
         Me.Btn_入院 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -71,7 +72,6 @@ Partial Class 门诊医生工作站
         Me.Btn_更新模板 = New System.Windows.Forms.Button()
         Me.Btn_删除模板 = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.Btn_住院单打印 = New System.Windows.Forms.Button()
         Me.CB_入院时情况 = New System.Windows.Forms.ComboBox()
         Me.CB_病区名 = New System.Windows.Forms.ComboBox()
@@ -86,13 +86,12 @@ Partial Class 门诊医生工作站
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView7 = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
+        Me.B_合作医疗打印 = New System.Windows.Forms.Button()
         Me.Btn_自费打印 = New System.Windows.Forms.Button()
-        Me.Btn_医保打印 = New System.Windows.Forms.Button()
         Me.Btn_删除检查 = New System.Windows.Forms.Button()
         Me.Btn_添加检查 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -105,32 +104,25 @@ Partial Class 门诊医生工作站
         Me.PD_住院单 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PD_处方 = New System.Drawing.Printing.PrintDocument()
-        LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.PD_检查单_参合 = New System.Drawing.Printing.PrintDocument()
+        Me.PD_检查单_自费 = New System.Drawing.Printing.PrintDocument()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'LineShape2
-        '
-        LineShape2.Enabled = False
-        LineShape2.Name = "LineShape2"
-        LineShape2.X1 = -6
-        LineShape2.X2 = 334
-        LineShape2.Y1 = 210
-        LineShape2.Y2 = 210
         '
         'FlowLayoutPanel1
         '
@@ -280,7 +272,7 @@ Partial Class 门诊医生工作站
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.Padding = New System.Drawing.Point(10, 5)
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(911, 488)
+        Me.TabControl1.Size = New System.Drawing.Size(911, 563)
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
         Me.TabControl1.TabIndex = 1
         Me.TabControl1.Visible = False
@@ -316,7 +308,7 @@ Partial Class 门诊医生工作站
         Me.TabPage1.Location = New System.Drawing.Point(4, 34)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(903, 450)
+        Me.TabPage1.Size = New System.Drawing.Size(903, 525)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "处      方"
         '
@@ -514,7 +506,7 @@ Partial Class 门诊医生工作站
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(891, 211)
+        Me.DataGridView2.Size = New System.Drawing.Size(891, 299)
         Me.DataGridView2.TabIndex = 3
         '
         'DataGridView1
@@ -560,11 +552,11 @@ Partial Class 门诊医生工作站
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.Silver
+        Me.TabPage2.Controls.Add(Me.GroupBox4)
         Me.TabPage2.Controls.Add(Me.Btn_退院)
         Me.TabPage2.Controls.Add(Me.Btn_入院)
         Me.TabPage2.Controls.Add(Me.GroupBox2)
         Me.TabPage2.Controls.Add(Me.GroupBox1)
-        Me.TabPage2.Controls.Add(Me.DataGridView3)
         Me.TabPage2.Controls.Add(Me.Btn_住院单打印)
         Me.TabPage2.Controls.Add(Me.CB_入院时情况)
         Me.TabPage2.Controls.Add(Me.CB_病区名)
@@ -579,20 +571,41 @@ Partial Class 门诊医生工作站
         Me.TabPage2.Controls.Add(Me.Label18)
         Me.TabPage2.Controls.Add(Me.Label17)
         Me.TabPage2.Controls.Add(Me.Label15)
-        Me.TabPage2.Controls.Add(Me.ShapeContainer1)
         Me.TabPage2.Location = New System.Drawing.Point(4, 34)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(903, 450)
+        Me.TabPage2.Size = New System.Drawing.Size(903, 525)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "门诊病历"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.DataGridView3)
+        Me.GroupBox4.Location = New System.Drawing.Point(4, 297)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(326, 222)
+        Me.GroupBox4.TabIndex = 14
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "住院记录"
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.AllowUserToDeleteRows = False
+        Me.DataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(11, 25)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(305, 191)
+        Me.DataGridView3.TabIndex = 0
         '
         'Btn_退院
         '
         Me.Btn_退院.BackColor = System.Drawing.Color.Yellow
         Me.Btn_退院.Location = New System.Drawing.Point(108, 252)
         Me.Btn_退院.Name = "Btn_退院"
-        Me.Btn_退院.Size = New System.Drawing.Size(97, 36)
+        Me.Btn_退院.Size = New System.Drawing.Size(98, 40)
         Me.Btn_退院.TabIndex = 13
         Me.Btn_退院.Text = "退      院"
         Me.Btn_退院.UseVisualStyleBackColor = False
@@ -602,7 +615,7 @@ Partial Class 门诊医生工作站
         Me.Btn_入院.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Btn_入院.Location = New System.Drawing.Point(6, 252)
         Me.Btn_入院.Name = "Btn_入院"
-        Me.Btn_入院.Size = New System.Drawing.Size(97, 36)
+        Me.Btn_入院.Size = New System.Drawing.Size(98, 40)
         Me.Btn_入院.TabIndex = 13
         Me.Btn_入院.Text = "入     院"
         Me.ToolTip1.SetToolTip(Me.Btn_入院, "录入到待入院名单里，患者直接去住院部报道。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "护士负责录入相关信息，分配床等。")
@@ -611,9 +624,9 @@ Partial Class 门诊医生工作站
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.DataGridView5)
-        Me.GroupBox2.Location = New System.Drawing.Point(336, 276)
+        Me.GroupBox2.Location = New System.Drawing.Point(336, 268)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(562, 143)
+        Me.GroupBox2.Size = New System.Drawing.Size(562, 251)
         Me.GroupBox2.TabIndex = 12
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "病历记录"
@@ -621,11 +634,13 @@ Partial Class 门诊医生工作站
         'DataGridView5
         '
         Me.DataGridView5.AllowUserToAddRows = False
+        Me.DataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView5.Location = New System.Drawing.Point(15, 26)
         Me.DataGridView5.Name = "DataGridView5"
         Me.DataGridView5.ReadOnly = True
-        Me.DataGridView5.Size = New System.Drawing.Size(539, 104)
+        Me.DataGridView5.Size = New System.Drawing.Size(539, 211)
         Me.DataGridView5.TabIndex = 0
         Me.DataGridView5.TabStop = False
         '
@@ -678,25 +693,10 @@ Partial Class 门诊医生工作站
         Me.DataGridView4.TabIndex = 0
         Me.DataGridView4.TabStop = False
         '
-        'DataGridView3
-        '
-        Me.DataGridView3.AllowUserToAddRows = False
-        Me.DataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
-        Me.DataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(3, 294)
-        Me.DataGridView3.MultiSelect = False
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.ReadOnly = True
-        Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(306, 125)
-        Me.DataGridView3.TabIndex = 10
-        Me.DataGridView3.TabStop = False
-        '
         'Btn_住院单打印
         '
         Me.Btn_住院单打印.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.Btn_住院单打印.Location = New System.Drawing.Point(212, 222)
+        Me.Btn_住院单打印.Location = New System.Drawing.Point(212, 252)
         Me.Btn_住院单打印.Name = "Btn_住院单打印"
         Me.Btn_住院单打印.Size = New System.Drawing.Size(98, 40)
         Me.Btn_住院单打印.TabIndex = 10
@@ -829,16 +829,6 @@ Partial Class 门诊医生工作站
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "诊断："
         '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 3)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {LineShape2})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(897, 444)
-        Me.ShapeContainer1.TabIndex = 6
-        Me.ShapeContainer1.TabStop = False
-        '
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.Silver
@@ -846,23 +836,28 @@ Partial Class 门诊医生工作站
         Me.TabPage3.Controls.Add(Me.GroupBox3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 34)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(903, 450)
+        Me.TabPage3.Size = New System.Drawing.Size(903, 525)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "申请检查"
         '
         'DataGridView7
         '
+        Me.DataGridView7.AllowUserToAddRows = False
+        Me.DataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridView7.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView7.Location = New System.Drawing.Point(13, 216)
+        Me.DataGridView7.Location = New System.Drawing.Point(14, 232)
         Me.DataGridView7.Name = "DataGridView7"
-        Me.DataGridView7.Size = New System.Drawing.Size(875, 187)
+        Me.DataGridView7.ReadOnly = True
+        Me.DataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView7.Size = New System.Drawing.Size(875, 281)
         Me.DataGridView7.TabIndex = 10
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.DataGridView6)
+        Me.GroupBox3.Controls.Add(Me.B_合作医疗打印)
         Me.GroupBox3.Controls.Add(Me.Btn_自费打印)
-        Me.GroupBox3.Controls.Add(Me.Btn_医保打印)
         Me.GroupBox3.Controls.Add(Me.Btn_删除检查)
         Me.GroupBox3.Controls.Add(Me.Btn_添加检查)
         Me.GroupBox3.Controls.Add(Me.Label20)
@@ -874,45 +869,50 @@ Partial Class 门诊医生工作站
         Me.GroupBox3.Controls.Add(Me.CB_选择科室)
         Me.GroupBox3.Location = New System.Drawing.Point(14, 15)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(705, 181)
+        Me.GroupBox3.Size = New System.Drawing.Size(874, 200)
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "申请检查"
         '
         'DataGridView6
         '
+        Me.DataGridView6.AllowUserToAddRows = False
+        Me.DataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridView6.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView6.Location = New System.Drawing.Point(11, 102)
+        Me.DataGridView6.Location = New System.Drawing.Point(0, 102)
         Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.Size = New System.Drawing.Size(680, 62)
+        Me.DataGridView6.ReadOnly = True
+        Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView6.Size = New System.Drawing.Size(874, 92)
         Me.DataGridView6.TabIndex = 9
+        '
+        'B_合作医疗打印
+        '
+        Me.B_合作医疗打印.BackColor = System.Drawing.Color.SpringGreen
+        Me.B_合作医疗打印.Location = New System.Drawing.Point(457, 64)
+        Me.B_合作医疗打印.Name = "B_合作医疗打印"
+        Me.B_合作医疗打印.Size = New System.Drawing.Size(110, 32)
+        Me.B_合作医疗打印.TabIndex = 8
+        Me.B_合作医疗打印.Text = "合作医疗打印"
+        Me.B_合作医疗打印.UseVisualStyleBackColor = False
         '
         'Btn_自费打印
         '
         Me.Btn_自费打印.BackColor = System.Drawing.Color.SpringGreen
-        Me.Btn_自费打印.Location = New System.Drawing.Point(601, 63)
+        Me.Btn_自费打印.Location = New System.Drawing.Point(601, 60)
         Me.Btn_自费打印.Name = "Btn_自费打印"
-        Me.Btn_自费打印.Size = New System.Drawing.Size(90, 32)
+        Me.Btn_自费打印.Size = New System.Drawing.Size(110, 32)
         Me.Btn_自费打印.TabIndex = 8
         Me.Btn_自费打印.Text = "自费打印"
         Me.Btn_自费打印.UseVisualStyleBackColor = False
         '
-        'Btn_医保打印
-        '
-        Me.Btn_医保打印.BackColor = System.Drawing.Color.Green
-        Me.Btn_医保打印.Location = New System.Drawing.Point(477, 64)
-        Me.Btn_医保打印.Name = "Btn_医保打印"
-        Me.Btn_医保打印.Size = New System.Drawing.Size(90, 32)
-        Me.Btn_医保打印.TabIndex = 7
-        Me.Btn_医保打印.Text = "医保打印"
-        Me.Btn_医保打印.UseVisualStyleBackColor = False
-        '
         'Btn_删除检查
         '
         Me.Btn_删除检查.BackColor = System.Drawing.Color.Coral
-        Me.Btn_删除检查.Location = New System.Drawing.Point(601, 17)
+        Me.Btn_删除检查.Location = New System.Drawing.Point(601, 18)
         Me.Btn_删除检查.Name = "Btn_删除检查"
-        Me.Btn_删除检查.Size = New System.Drawing.Size(90, 32)
+        Me.Btn_删除检查.Size = New System.Drawing.Size(110, 32)
         Me.Btn_删除检查.TabIndex = 6
         Me.Btn_删除检查.Text = "删       除"
         Me.Btn_删除检查.UseVisualStyleBackColor = False
@@ -920,9 +920,9 @@ Partial Class 门诊医生工作站
         'Btn_添加检查
         '
         Me.Btn_添加检查.BackColor = System.Drawing.Color.LimeGreen
-        Me.Btn_添加检查.Location = New System.Drawing.Point(477, 16)
+        Me.Btn_添加检查.Location = New System.Drawing.Point(457, 22)
         Me.Btn_添加检查.Name = "Btn_添加检查"
-        Me.Btn_添加检查.Size = New System.Drawing.Size(90, 32)
+        Me.Btn_添加检查.Size = New System.Drawing.Size(110, 32)
         Me.Btn_添加检查.TabIndex = 5
         Me.Btn_添加检查.Text = "添       加"
         Me.Btn_添加检查.UseVisualStyleBackColor = False
@@ -950,6 +950,7 @@ Partial Class 门诊医生工作站
         Me.TB_价格.Location = New System.Drawing.Point(318, 65)
         Me.TB_价格.MaxLength = 6
         Me.TB_价格.Name = "TB_价格"
+        Me.TB_价格.ReadOnly = True
         Me.TB_价格.Size = New System.Drawing.Size(103, 23)
         Me.TB_价格.TabIndex = 4
         '
@@ -958,6 +959,7 @@ Partial Class 门诊医生工作站
         Me.TB_项目单位.Location = New System.Drawing.Point(317, 27)
         Me.TB_项目单位.MaxLength = 10
         Me.TB_项目单位.Name = "TB_项目单位"
+        Me.TB_项目单位.ReadOnly = True
         Me.TB_项目单位.Size = New System.Drawing.Size(104, 23)
         Me.TB_项目单位.TabIndex = 2
         '
@@ -989,6 +991,7 @@ Partial Class 门诊医生工作站
         '
         'PD_住院单
         '
+        Me.PD_住院单.DocumentName = "住院单打印"
         '
         'ToolTip1
         '
@@ -997,19 +1000,28 @@ Partial Class 门诊医生工作站
         '
         'PD_处方
         '
-        Me.PD_处方.DocumentName = "处方"
+        Me.PD_处方.DocumentName = "处方打印"
+        '
+        'PD_检查单_参合
+        '
+        Me.PD_检查单_参合.DocumentName = "检查单打印"
+        '
+        'PD_检查单_自费
+        '
+        Me.PD_检查单_自费.DocumentName = "自费打印"
         '
         '门诊医生工作站
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSlateGray
-        Me.ClientSize = New System.Drawing.Size(931, 520)
+        Me.ClientSize = New System.Drawing.Size(931, 640)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "门诊医生工作站"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "门诊医生工作站"
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
@@ -1019,11 +1031,12 @@ Partial Class 门诊医生工作站
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
@@ -1097,7 +1110,6 @@ Partial Class 门诊医生工作站
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents DataGridView6 As DataGridView
     Friend WithEvents Btn_自费打印 As Button
-    Friend WithEvents Btn_医保打印 As Button
     Friend WithEvents Btn_删除检查 As Button
     Friend WithEvents Btn_添加检查 As Button
     Friend WithEvents Label20 As Label
@@ -1112,7 +1124,10 @@ Partial Class 门诊医生工作站
     Friend WithEvents Btn_退院 As Button
     Friend WithEvents Btn_入院 As Button
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
     Friend WithEvents PD_处方 As Printing.PrintDocument
+    Friend WithEvents PD_检查单_参合 As Printing.PrintDocument
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents B_合作医疗打印 As Button
+    Friend WithEvents PD_检查单_自费 As Printing.PrintDocument
 End Class

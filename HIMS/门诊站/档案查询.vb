@@ -1,15 +1,5 @@
 ﻿'written by:Nura
-Imports System.IO
-Imports System
-Imports System.Reflection
-Imports System.Data
-Imports System.Text
-Imports System.Drawing
-Imports System.Drawing.Imaging
 Imports System.Drawing.Printing
-Imports System.Collections.Generic
-Imports System.Windows.Forms
-Imports Microsoft.Reporting.WinForms
 
 Public Class 档案查询
 
