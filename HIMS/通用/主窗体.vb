@@ -81,4 +81,8 @@ Public Class 主窗体
     Private Sub TSPB_服务器状态_Click(sender As Object, e As EventArgs) Handles TSPB_服务器状态.Click
         Message(Me.TSPB_服务器状态.ToolTipText, 1, "当前连接数")
     End Sub
+
+    Private Sub 今日挂号单总表_Click(sender As Object, e As EventArgs) Handles 今日挂号单总表.Click
+        今日挂号报表.Show()
+    End Sub
 End Class

@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="检查单_连接">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>caeb5c8a-ebdd-4474-8670-7684c48e84dc</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>检查单_连接</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="患者编号">
+          <DataField>患者编号</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="门诊号">
+          <DataField>门诊号</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="申请日期">
+          <DataField>申请日期</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="申请时间">
+          <DataField>申请时间</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="申请科室">
+          <DataField>申请科室</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="申请医师">
+          <DataField>申请医师</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="编号">
+          <DataField>编号</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="检查科室">
+          <DataField>检查科室</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="检查项目">
+          <DataField>检查项目</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="单位">
+          <DataField>单位</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="价格">
+          <DataField>价格</DataField>
+          <rd:TypeName>System.Single</rd:TypeName>
+        </Field>
+        <Field Name="检查结果">
+          <DataField>检查结果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="检查意见">
+          <DataField>检查意见</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="检查日期">
+          <DataField>检查日期</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="检查时间">
+          <DataField>检查时间</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="检查医师">
+          <DataField>检查医师</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="完成时间">
+          <DataField>完成时间</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="图像">
+          <DataField>图像</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="状态">
+          <DataField>状态</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>检查单_连接</rd:DataSetName>
+        <rd:SchemaPath>D:\Hospital System\门诊医生工作站\HIMS\HIMS\检查单_连接.xsd</rd:SchemaPath>
+        <rd:TableName>检查单</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>检查单TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -12,11 +119,13 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>荒地镇卫生院</Value>
+                    <Value>荒 地 镇 卫 生 院</Value>
                     <Style>
-                      <FontFamily>lisu</FontFamily>
+                      <FontFamily>Simsun</FontFamily>
                       <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                       <Color>Orange</Color>
+                      <Language>en-CH</Language>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -26,7 +135,7 @@
               </Paragraph>
             </Paragraphs>
             <Top>0.34078cm</Top>
-            <Left>8.38412cm</Left>
+            <Left>6.3113cm</Left>
             <Height>0.82021cm</Height>
             <Width>4.89479cm</Width>
             <Style>
@@ -49,7 +158,10 @@
                   <TextRun>
                     <Value>Ｘ线检查单</Value>
                     <Style>
-                      <FontFamily>KaiTi</FontFamily>
+                      <FontStyle>Italic</FontStyle>
+                      <FontFamily>Simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                       <Language>zh-CN</Language>
                     </Style>
                   </TextRun>
@@ -61,7 +173,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>1.74307cm</Top>
-            <Left>9.38954cm</Left>
+            <Left>7.33039cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>1</ZIndex>
@@ -79,7 +191,7 @@
             <Top>2.77495cm</Top>
             <Left>0.97896cm</Left>
             <Height>0cm</Height>
-            <Width>19.47334cm</Width>
+            <Width>15.37845cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -88,10 +200,10 @@
             </Style>
           </Line>
           <Line Name="Line2">
-            <Top>2.91606cm</Top>
+            <Top>2.81606cm</Top>
             <Left>0.97896cm</Left>
             <Height>0cm</Height>
-            <Width>19.47334cm</Width>
+            <Width>15.37845cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -108,7 +220,8 @@
                   <TextRun>
                     <Value>患者姓名：</Value>
                     <Style>
-                      <FontFamily>KaiTi</FontFamily>
+                      <FontFamily>Simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <Language>zh-CN</Language>
                     </Style>
                   </TextRun>
@@ -119,8 +232,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>3.32479cm</Top>
-            <Left>1.68247cm</Left>
+            <Top>3.29833cm</Top>
+            <Left>1.50608cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>4</ZIndex>
@@ -141,9 +254,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Parameters!患者姓名.Value</Value>
                     <Style>
                       <FontFamily>SimSun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
                     </Style>
                   </TextRun>
@@ -154,8 +269,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.32479cm</Top>
-            <Left>4.18247cm</Left>
+            <Top>3.29833cm</Top>
+            <Left>4.00608cm</Left>
             <Height>0.6cm</Height>
             <Width>4.91603cm</Width>
             <ZIndex>5</ZIndex>
@@ -170,20 +285,1484 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="性别">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!性别.Value</Value>
+                    <Style>
+                      <FontFamily>Simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>性别</rd:DefaultName>
+            <Top>3.29833cm</Top>
+            <Left>10.31558cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.57396cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>性别:</Value>
+                    <Style>
+                      <FontFamily>Simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox6</rd:DefaultName>
+            <Top>3.32479cm</Top>
+            <Left>9.25314cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.35347cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox7">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>年龄:</Value>
+                    <Style>
+                      <FontFamily>Simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Top>3.32479cm</Top>
+            <Left>12.06593cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.21298cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="年龄">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!年龄.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>年龄</rd:DefaultName>
+            <Top>3.29833cm</Top>
+            <Left>13.06724cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox9">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>结算方式:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>4.46828cm</Top>
+            <Left>1.21391cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="结算方式">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!结算方式.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>结算方式</rd:DefaultName>
+            <Top>4.46828cm</Top>
+            <Left>3.19469cm</Left>
+            <Height>0.57354cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>地址:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox11</rd:DefaultName>
+            <Top>4.44183cm</Top>
+            <Left>6.32087cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.25646cm</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="地址">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!地址.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>地址</rd:DefaultName>
+            <Top>4.44183cm</Top>
+            <Left>7.33039cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.71708cm</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox10">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>诊断:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>4.46828cm</Top>
+            <Left>11.04747cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>1.46043cm</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox12">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>检查项目:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>5.56312cm</Top>
+            <Left>1.21391cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>15</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox13">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>规格:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>5.56312cm</Top>
+            <Left>6.32087cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>1.24877cm</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox14">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>价格:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>5.56312cm</Top>
+            <Left>11.04747cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>1.24877cm</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>自费金额:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>6.67437cm</Top>
+            <Left>1.21391cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox16">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>自费总金额:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>6.67437cm</Top>
+            <Left>6.32087cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line3">
+            <Top>6.26868cm</Top>
+            <Left>0.97896cm</Left>
+            <Height>0cm</Height>
+            <Width>15.37845cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line4">
+            <Top>6.35cm</Top>
+            <Left>0.97896cm</Left>
+            <Height>0cm</Height>
+            <Width>15.37845cm</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>申请科室:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>7.70625cm</Top>
+            <Left>1.21391cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox18">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>申请医师:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>7.70625cm</Top>
+            <Left>6.3113cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.50188cm</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox19">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>划价员:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>6.67437cm</Top>
+            <Left>12.06593cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>1.62278cm</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>收费员:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>7.70625cm</Top>
+            <Left>12.06593cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>1.64564cm</Width>
+            <ZIndex>25</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>申请时间:</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>8.68521cm</Top>
+            <Left>1.21391cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>26</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox22">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>注:盖章后有效！</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>8.68521cm</Top>
+            <Left>12.06593cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>4.29148cm</Width>
+            <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="诊断">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!诊断.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>诊断</rd:DefaultName>
+            <Top>4.46828cm</Top>
+            <Left>12.03537cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.53187cm</Width>
+            <ZIndex>28</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="检查项目">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!检查项目.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>检查项目</rd:DefaultName>
+            <Top>5.56285cm</Top>
+            <Left>3.14537cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox23">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!规格.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>5.56285cm</Top>
+            <Left>7.33039cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox24">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!价格.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>5.56285cm</Top>
+            <Left>12.29624cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox25">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>[@自费金额]</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>6.67437cm</Top>
+            <Left>3.20238cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>32</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox26">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>[@自费总金额]</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>6.67437cm</Top>
+            <Left>8.88374cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.86171cm</Width>
+            <ZIndex>33</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox27">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>[@</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>划价员]</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>6.67437cm</Top>
+            <Left>13.8651cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>34</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox28">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>[@申请科室]</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>7.70625cm</Top>
+            <Left>3.20238cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>35</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox29">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>[@申请医师]</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>7.70625cm</Top>
+            <Left>8.98957cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>2.49231cm</Width>
+            <ZIndex>36</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox30">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>[@</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>收费员]</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox9</rd:DefaultName>
+            <Top>7.70625cm</Top>
+            <Left>13.74685cm</Left>
+            <Height>0.52917cm</Height>
+            <Width>3.04793cm</Width>
+            <ZIndex>37</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="ExecutionTime">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Globals!ExecutionTime</Value>
+                    <Style>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ExecutionTime</rd:DefaultName>
+            <Top>8.68521cm</Top>
+            <Left>3.88261cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.34667cm</Width>
+            <ZIndex>38</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="Image1">
+            <Source>Embedded</Source>
+            <Value>hospital</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>1.09856cm</Top>
+            <Left>11.20609cm</Left>
+            <Height>1.5cm</Height>
+            <Width>1.5cm</Width>
+            <ZIndex>39</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Image2">
+            <Source>Embedded</Source>
+            <Value>hospital</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>1.09856cm</Top>
+            <Left>4.74075cm</Left>
+            <Height>1.5cm</Height>
+            <Width>1.5cm</Width>
+            <ZIndex>40</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="申请时间">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!申请时间.Value</Value>
+                    <Style>
+                      <FontFamily>simsun</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>申请时间</rd:DefaultName>
+            <Top>8.68521cm</Top>
+            <Left>8.38412cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>41</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.44969cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.64125cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.8887cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.66146cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox32">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>患者编号</Value>
+                                  <Style>
+                                    <FontFamily>simsun</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox32</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox38">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>申请日期</Value>
+                                  <Style>
+                                    <FontFamily>simsun</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox38</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox40">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>申请科室</Value>
+                                  <Style>
+                                    <FontFamily>simsun</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox40</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox36">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>申请医师</Value>
+                                  <Style>
+                                    <FontFamily>simsun</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox36</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.635cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="患者编号">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!患者编号.Value</Value>
+                                  <Style>
+                                    <FontFamily>kaiti</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>患者编号</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="申请日期">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!申请日期.Value</Value>
+                                  <Style>
+                                    <FontFamily>kaiti</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>申请日期</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="申请科室">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!申请科室.Value</Value>
+                                  <Style>
+                                    <FontFamily>kaiti</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>申请科室</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="申请医师">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!申请医师.Value</Value>
+                                  <Style>
+                                    <FontFamily>kaiti</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>申请医师</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <FixedColumnHeaders>true</FixedColumnHeaders>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>9.81287cm</Top>
+            <Left>3.01567cm</Left>
+            <Height>1.29646cm</Height>
+            <Width>10.47964cm</Width>
+            <ZIndex>42</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
         </ReportItems>
-        <Height>297mm</Height>
-        <Style />
+        <Height>250mm</Height>
+        <Style>
+          <Border>
+            <Color>LimeGreen</Color>
+            <Style>None</Style>
+          </Border>
+        </Style>
       </Body>
-      <Width>210mm</Width>
+      <Width>176mm</Width>
       <Page>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
-        <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
+        <PageHeight>250mm</PageHeight>
+        <PageWidth>176mm</PageWidth>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
-        <Style />
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
       </Page>
     </ReportSection>
   </ReportSections>
@@ -191,22 +1770,153 @@
     <ReportParameter Name="患者姓名">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="性别">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="年龄">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="结算方式">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="地址">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="诊断">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="检查项目">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="规格">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="价格">
+      <DataType>Float</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="申请科室">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="申请医师">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="申请时间">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
+      <NumberOfRows>3</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>患者姓名</ParameterName>
         </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>性别</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>年龄</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>结算方式</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>地址</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>诊断</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>检查项目</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>规格</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>价格</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>申请科室</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>申请医师</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>申请时间</ParameterName>
+        </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="hospital">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>2e9d4356-ae19-4561-b10c-0a3e456625e5</rd:ReportID>
 </Report>

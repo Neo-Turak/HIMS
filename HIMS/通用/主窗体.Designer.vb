@@ -56,6 +56,8 @@ Partial Class 主窗体
         Me.医技检查ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.医技模板管理ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.综合查询ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.今日挂号单总表 = New System.Windows.Forms.ToolStripMenuItem()
         Me.个性化设置ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.修改口令ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.其他设置ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,7 +79,7 @@ Partial Class 主窗体
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.门诊医生工作站ToolStripMenuItem, Me.药房工作站ToolStripMenuItem, Me.药库工作站ToolStripMenuItem, Me.医技工作站ToolStripMenuItem, Me.个性化设置ToolStripMenuItem, Me.屏保ToolStripMenuItem, Me.其他功能ToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.门诊医生工作站ToolStripMenuItem, Me.药房工作站ToolStripMenuItem, Me.药库工作站ToolStripMenuItem, Me.医技工作站ToolStripMenuItem, Me.ToolStripMenuItem4, Me.个性化设置ToolStripMenuItem, Me.屏保ToolStripMenuItem, Me.其他功能ToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
@@ -289,6 +291,19 @@ Partial Class 主窗体
         Me.综合查询ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.综合查询ToolStripMenuItem.Text = "综合查询"
         '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.今日挂号单总表})
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(45, 20)
+        Me.ToolStripMenuItem4.Text = "报表"
+        '
+        '今日挂号单总表
+        '
+        Me.今日挂号单总表.Name = "今日挂号单总表"
+        Me.今日挂号单总表.Size = New System.Drawing.Size(180, 22)
+        Me.今日挂号单总表.Text = "今日挂号总表"
+        '
         '个性化设置ToolStripMenuItem
         '
         Me.个性化设置ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.修改口令ToolStripMenuItem, Me.其他设置ToolStripMenuItem})
@@ -465,4 +480,6 @@ Partial Class 主窗体
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Friend WithEvents 入院单名单ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TSPB_服务器状态 As ToolStripProgressBar
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents 今日挂号单总表 As ToolStripMenuItem
 End Class

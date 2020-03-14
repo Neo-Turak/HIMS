@@ -53,6 +53,16 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ghgl;Integrated Security=True")>  _
+        Public ReadOnly Property 今日挂号单报表() As String
+            Get
+                Return CType(Me("今日挂号单报表"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

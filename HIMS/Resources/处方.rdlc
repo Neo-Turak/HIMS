@@ -5,6 +5,8 @@
       <Image Name="处方背景">
         <Source>Embedded</Source>
         <Value>处方</Value>
+        <Sizing>Fit</Sizing>
+        <Top>2.37807cm</Top>
         <Height>37.91479cm</Height>
         <Width>53.55167cm</Width>
         <Style>
@@ -159,10 +161,10 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>17.59162cm</Top>
+        <Top>20.76662cm</Top>
         <Left>2.88078cm</Left>
         <Height>0.9525cm</Height>
-        <Width>15.5575cm</Width>
+        <Width>16.95979cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -174,14 +176,143 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="药品列2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!药品名称.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">　　</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!规格.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">　　</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!数量.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">　</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!单位.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">　</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!剂量.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">　　</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!单价.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">　</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!金额.Value</Value>
+                <Style>
+                  <FontFamily>Microsoft YaHei</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>20.76662cm</Top>
+        <Left>28.7999cm</Left>
+        <Height>0.9525cm</Height>
+        <Width>16.95979cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>14.98833in</Height>
+    <Height>15.86333in</Height>
     <Style />
   </Body>
   <Width>21.08333in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>176mm</PageHeight>
+    <PageWidth>250mm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

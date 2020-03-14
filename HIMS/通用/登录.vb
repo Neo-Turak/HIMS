@@ -1,12 +1,15 @@
 ﻿'written by:Nura
-
+Imports System.Data.Entity.SqlServer
+Imports Microsoft.SqlServer.Types
 Public Class 登录
     'SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory)
 
     Public pwd As String
 
     Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+        '下面是为了解决报表浏览器的错误而定义的。
+        SqlProviderServices.SqlServerTypesAssemblyName = Reflection.Assembly.GetAssembly(GetType(Microsoft.SqlServer.Types.SqlGeography)).FullName
+        'SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory)
         If AlreadyRunning() Then
             MessageBox.Show("另一个实例在运行中.", "已运行", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Me.Close()

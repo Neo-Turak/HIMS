@@ -2,6 +2,7 @@
 Imports System.ComponentModel
 Imports System.Data.SqlClient
 Imports System.Drawing.Printing
+Imports Microsoft.Reporting.WinForms
 
 Public Class 门诊医生工作站
 
@@ -517,5 +518,14 @@ Public Class 门诊医生工作站
         e.Graphics.DrawString(分支线, f, b, 0, 500)
         e.HasMorePages = False
 
+    End Sub
+
+    Private Sub Btn_删除检查_Click(sender As Object, e As EventArgs) Handles Btn_删除检查.Click
+        'Dim lr As LocalReport = New LocalReport
+        'Dim rv As ReportViewer = New ReportViewer
+        'lr.DataSources.Add(New ReportDataSource("\..\..\Reporter.rdlc"))
+        'rv.LocalReport.DataSources.Add(New ReportDataSource("\..\..\reporter.rdlc"))
+        'rv.Show()
+        报表浏览.Show()
     End Sub
 End Class

@@ -163,10 +163,28 @@ Module DbaseHelper
 
                 End Using
             End Using
-            cn.Close()
         End Using
         Return dset
     End Function
+    Public Function Get_挂号单详情_男_女() As DataSet
+        Dim dset As New DataSet("挂号单")
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("SELECT * FROM 挂号单详情_男_女")
+                'sql.CommandTimeout = 300
+                sql.Connection = cn
+                sql.CommandType = CommandType.Text
+                Using dr As SqlDataReader = sql.ExecuteReader
+                    If dr.HasRows Then
+                        dset.Load(dr, 3, "男女")
+                    End If
+
+                End Using
+            End Using
+        End Using
+        Return dset
+    End Function
+
 
     Public Function 修改ID_患者总表() As Boolean
         Dim flag As Boolean = False
@@ -546,7 +564,6 @@ Module DbaseHelper
                     '*****数据集主动
                 End Using
             End Using
-            cn.Close()
         End Using
     End Function
 
