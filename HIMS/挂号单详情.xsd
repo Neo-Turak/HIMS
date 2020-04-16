@@ -1,15 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="挂号单详情" targetNamespace="http://tempuri.org/挂号单详情.xsd" xmlns:mstns="http://tempuri.org/挂号单详情.xsd" xmlns="http://tempuri.org/挂号单详情.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+
+<xs:schema id="挂号单详情" targetNamespace="http://tempuri.org/挂号单详情.xsd" xmlns:mstns="http://tempuri.org/挂号单详情.xsd"
+           xmlns="http://tempuri.org/挂号单详情.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop"
+           attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter"
+                  Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema"
+                  xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="今日挂号单报表" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="今日挂号单报表 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HIMS.My.MySettings.GlobalReference.Default.今日挂号单报表" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="今日挂号单报表" ConnectionStringObject=""
+                      IsAppSettingsProperty="true" Modifier="Assembly" Name="今日挂号单报表 (MySettings)" ParameterPrefix="@"
+                      PropertyReference="ApplicationSettings.HIMS.My.MySettings.GlobalReference.Default.今日挂号单报表"
+                      Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="挂号单详情TableAdapter" GeneratorDataComponentClassName="挂号单详情TableAdapter" Name="挂号单详情" UserDataComponentName="挂号单详情TableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component"
+                        DataAccessorModifier="AutoLayout, AnsiClass, Class, Public"
+                        DataAccessorName="挂号单详情TableAdapter" GeneratorDataComponentClassName="挂号单详情TableAdapter"
+                        Name="挂号单详情" UserDataComponentName="挂号单详情TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="今日挂号单报表 (MySettings)" DbObjectName="ghgl.dbo.挂号单详情" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="今日挂号单报表 (MySettings)" DbObjectName="ghgl.dbo.挂号单详情" DbObjectType="View"
+                        FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both"
+                        GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill"
+                        GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset"
+                        ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+                        UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT 患者编号, 患者姓名, 合作医疗号, 性别, 年龄, 结算方式, 挂号时间 FROM dbo.挂号单详情</CommandText>
@@ -34,49 +51,73 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="挂号单详情" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="挂号单详情" msprop:Generator_UserDSName="挂号单详情">
+  <xs:element name="挂号单详情" msdata:IsDataSet="true" msdata:UseCurrentLocale="true"
+              msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="挂号单详情"
+              msprop:Generator_UserDSName="挂号单详情">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="挂号单详情" msprop:Generator_TableClassName="挂号单详情DataTable" msprop:Generator_TableVarName="table挂号单详情" msprop:Generator_TablePropName="_挂号单详情" msprop:Generator_RowDeletingName="挂号单详情RowDeleting" msprop:Generator_RowChangingName="挂号单详情RowChanging" msprop:Generator_RowEvHandlerName="挂号单详情RowChangeEventHandler" msprop:Generator_RowDeletedName="挂号单详情RowDeleted" msprop:Generator_UserTableName="挂号单详情" msprop:Generator_RowChangedName="挂号单详情RowChanged" msprop:Generator_RowEvArgName="挂号单详情RowChangeEvent" msprop:Generator_RowClassName="挂号单详情Row">
+        <xs:element name="挂号单详情" msprop:Generator_TableClassName="挂号单详情DataTable"
+                    msprop:Generator_TableVarName="table挂号单详情" msprop:Generator_TablePropName="_挂号单详情"
+                    msprop:Generator_RowDeletingName="挂号单详情RowDeleting"
+                    msprop:Generator_RowChangingName="挂号单详情RowChanging"
+                    msprop:Generator_RowEvHandlerName="挂号单详情RowChangeEventHandler"
+                    msprop:Generator_RowDeletedName="挂号单详情RowDeleted" msprop:Generator_UserTableName="挂号单详情"
+                    msprop:Generator_RowChangedName="挂号单详情RowChanged"
+                    msprop:Generator_RowEvArgName="挂号单详情RowChangeEvent" msprop:Generator_RowClassName="挂号单详情Row">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="患者编号" msprop:Generator_ColumnVarNameInTable="column患者编号" msprop:Generator_ColumnPropNameInRow="患者编号" msprop:Generator_ColumnPropNameInTable="患者编号Column" msprop:Generator_UserColumnName="患者编号">
+              <xs:element name="患者编号" msprop:Generator_ColumnVarNameInTable="column患者编号"
+                          msprop:Generator_ColumnPropNameInRow="患者编号"
+                          msprop:Generator_ColumnPropNameInTable="患者编号Column" msprop:Generator_UserColumnName="患者编号">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="患者姓名" msprop:Generator_ColumnVarNameInTable="column患者姓名" msprop:Generator_ColumnPropNameInRow="患者姓名" msprop:Generator_ColumnPropNameInTable="患者姓名Column" msprop:Generator_UserColumnName="患者姓名">
+              <xs:element name="患者姓名" msprop:Generator_ColumnVarNameInTable="column患者姓名"
+                          msprop:Generator_ColumnPropNameInRow="患者姓名"
+                          msprop:Generator_ColumnPropNameInTable="患者姓名Column" msprop:Generator_UserColumnName="患者姓名">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="合作医疗号" msprop:Generator_ColumnVarNameInTable="column合作医疗号" msprop:Generator_ColumnPropNameInRow="合作医疗号" msprop:Generator_ColumnPropNameInTable="合作医疗号Column" msprop:Generator_UserColumnName="合作医疗号">
+              <xs:element name="合作医疗号" msprop:Generator_ColumnVarNameInTable="column合作医疗号"
+                          msprop:Generator_ColumnPropNameInRow="合作医疗号"
+                          msprop:Generator_ColumnPropNameInTable="合作医疗号Column" msprop:Generator_UserColumnName="合作医疗号">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="12" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="性别" msprop:Generator_ColumnVarNameInTable="column性别" msprop:Generator_ColumnPropNameInRow="性别" msprop:Generator_ColumnPropNameInTable="性别Column" msprop:Generator_UserColumnName="性别" minOccurs="0">
+              <xs:element name="性别" msprop:Generator_ColumnVarNameInTable="column性别"
+                          msprop:Generator_ColumnPropNameInRow="性别" msprop:Generator_ColumnPropNameInTable="性别Column"
+                          msprop:Generator_UserColumnName="性别" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="年龄" msprop:Generator_ColumnVarNameInTable="column年龄" msprop:Generator_ColumnPropNameInRow="年龄" msprop:Generator_ColumnPropNameInTable="年龄Column" msprop:Generator_UserColumnName="年龄" type="xs:unsignedByte" />
-              <xs:element name="结算方式" msprop:Generator_ColumnVarNameInTable="column结算方式" msprop:Generator_ColumnPropNameInRow="结算方式" msprop:Generator_ColumnPropNameInTable="结算方式Column" msprop:Generator_UserColumnName="结算方式">
+              <xs:element name="年龄" msprop:Generator_ColumnVarNameInTable="column年龄"
+                          msprop:Generator_ColumnPropNameInRow="年龄" msprop:Generator_ColumnPropNameInTable="年龄Column"
+                          msprop:Generator_UserColumnName="年龄" type="xs:unsignedByte" />
+              <xs:element name="结算方式" msprop:Generator_ColumnVarNameInTable="column结算方式"
+                          msprop:Generator_ColumnPropNameInRow="结算方式"
+                          msprop:Generator_ColumnPropNameInTable="结算方式Column" msprop:Generator_UserColumnName="结算方式">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="8" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="挂号时间" msprop:Generator_ColumnVarNameInTable="column挂号时间" msprop:Generator_ColumnPropNameInRow="挂号时间" msprop:Generator_ColumnPropNameInTable="挂号时间Column" msprop:Generator_UserColumnName="挂号时间" type="xs:duration" minOccurs="0" />
+              <xs:element name="挂号时间" msprop:Generator_ColumnVarNameInTable="column挂号时间"
+                          msprop:Generator_ColumnPropNameInRow="挂号时间"
+                          msprop:Generator_ColumnPropNameInTable="挂号时间Column" msprop:Generator_UserColumnName="挂号时间"
+                          type="xs:duration" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

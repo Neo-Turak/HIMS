@@ -1533,12 +1533,12 @@ Namespace 检查单_连接TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_状态", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "状态", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[检查单] ([患者编号], [门诊号], [申请日期], [申请时间], [申请科室], [申请医师], [编号], [检查"& _ 
-                "科室], [检查项目], [单位], [价格], [检查结果], [检查意见], [检查日期], [检查时间], [检查医师], [完成时间], [图像], ["& _ 
-                "状态]) VALUES (@患者编号, @门诊号, @申请日期, @申请时间, @申请科室, @申请医师, @编号, @检查科室, @检查项目, @单位, @价"& _ 
-                "格, @检查结果, @检查意见, @检查日期, @检查时间, @检查医师, @完成时间, @图像, @状态);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, 患者编号, 门诊号, 申"& _ 
-                "请日期, 申请时间, 申请科室, 申请医师, 编号, 检查科室, 检查项目, 单位, 价格, 检查结果, 检查意见, 检查日期, 检查时间, 检查医师, 完成时"& _ 
-                "间, 图像, 状态 FROM 检查单 WHERE (ID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      INSERT INTO [dbo].[检查单] ([患者编号], [门诊号], [申请日期], [申请时间], ["& _ 
+                "申请科室], [申请医师], [编号], [检查科室], [检查项目], [单位], [价格], [检查结果], [检查意见], [检查日期], [检查时间],"& _ 
+                " [检查医师], [完成时间], [图像], [状态]) VALUES (@患者编号, @门诊号, @申请日期, @申请时间, @申请科室, @申请医师, @编"& _ 
+                "号, @检查科室, @检查项目, @单位, @价格, @检查结果, @检查意见, @检查日期, @检查时间, @检查医师, @完成时间, @图像, @状态);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SELECT ID, 患者编号, 门诊号, 申请日期, 申请时间, 申请科室, 申请医师, 编号, 检查科室, 检"& _ 
+                "查项目, 单位, 价格, 检查结果, 检查意见, 检查日期, 检查时间, 检查医师, 完成时间, 图像, 状态 FROM 检查单 WHERE (ID = SCO"& _ 
+                "PE_IDENTITY())"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@患者编号", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "患者编号", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@门诊号", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "门诊号", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1561,24 +1561,25 @@ Namespace 检查单_连接TableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@状态", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "状态", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[检查单] SET [患者编号] = @患者编号, [门诊号] = @门诊号, [申请日期] = @申请日期, [申请时间] = @申请"& _ 
-                "时间, [申请科室] = @申请科室, [申请医师] = @申请医师, [编号] = @编号, [检查科室] = @检查科室, [检查项目] = @检查项目, "& _ 
-                "[单位] = @单位, [价格] = @价格, [检查结果] = @检查结果, [检查意见] = @检查意见, [检查日期] = @检查日期, [检查时间] ="& _ 
-                " @检查时间, [检查医师] = @检查医师, [完成时间] = @完成时间, [图像] = @图像, [状态] = @状态 WHERE (([ID] = @O"& _ 
-                "riginal_ID) AND ([患者编号] = @Original_患者编号) AND ((@IsNull_门诊号 = 1 AND [门诊号] IS NUL"& _ 
-                "L) OR ([门诊号] = @Original_门诊号)) AND ((@IsNull_申请日期 = 1 AND [申请日期] IS NULL) OR ([申"& _ 
-                "请日期] = @Original_申请日期)) AND ([申请时间] = @Original_申请时间) AND ((@IsNull_申请科室 = 1 AND"& _ 
-                " [申请科室] IS NULL) OR ([申请科室] = @Original_申请科室)) AND ((@IsNull_申请医师 = 1 AND [申请医师]"& _ 
-                " IS NULL) OR ([申请医师] = @Original_申请医师)) AND ((@IsNull_编号 = 1 AND [编号] IS NULL) O"& _ 
-                "R ([编号] = @Original_编号)) AND ([检查科室] = @Original_检查科室) AND ([检查项目] = @Original_检"& _ 
-                "查项目) AND ((@IsNull_单位 = 1 AND [单位] IS NULL) OR ([单位] = @Original_单位)) AND ((@IsN"& _ 
-                "ull_价格 = 1 AND [价格] IS NULL) OR ([价格] = @Original_价格)) AND ((@IsNull_检查日期 = 1 AN"& _ 
-                "D [检查日期] IS NULL) OR ([检查日期] = @Original_检查日期)) AND ((@IsNull_检查时间 = 1 AND [检查时间"& _ 
-                "] IS NULL) OR ([检查时间] = @Original_检查时间)) AND ((@IsNull_检查医师 = 1 AND [检查医师] IS NU"& _ 
-                "LL) OR ([检查医师] = @Original_检查医师)) AND ((@IsNull_完成时间 = 1 AND [完成时间] IS NULL) OR "& _ 
-                "([完成时间] = @Original_完成时间)) AND ((@IsNull_状态 = 1 AND [状态] IS NULL) OR ([状态] = @Or"& _ 
-                "iginal_状态)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, 患者编号, 门诊号, 申请日期, 申请时间, 申请科室, 申请医师, 编号, 检查科室, 检查项目, 单位,"& _ 
-                " 价格, 检查结果, 检查意见, 检查日期, 检查时间, 检查医师, 完成时间, 图像, 状态 FROM 检查单 WHERE (ID = @ID)"
+            Me._adapter.UpdateCommand.CommandText = ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      UPDATE [dbo].[检查单] SET [患者编号] = @患者编号, [门诊号] = @门诊号, [申请日"& _ 
+                "期] = @申请日期, [申请时间] = @申请时间, [申请科室] = @申请科室, [申请医师] = @申请医师, [编号] = @编号, [检查科室] ="& _ 
+                " @检查科室, [检查项目] = @检查项目, [单位] = @单位, [价格] = @价格, [检查结果] = @检查结果, [检查意见] = @检查意见, "& _ 
+                "[检查日期] = @检查日期, [检查时间] = @检查时间, [检查医师] = @检查医师, [完成时间] = @完成时间, [图像] = @图像, [状态]"& _ 
+                " = @状态 WHERE (([ID] = @Original_ID) AND ([患者编号] = @Original_患者编号) AND ((@IsNull_"& _ 
+                "门诊号 = 1 AND [门诊号] IS NULL) OR ([门诊号] = @Original_门诊号)) AND ((@IsNull_申请日期 = 1 AN"& _ 
+                "D [申请日期] IS NULL) OR ([申请日期] = @Original_申请日期)) AND ([申请时间] = @Original_申请时间) AN"& _ 
+                "D ((@IsNull_申请科室 = 1 AND [申请科室] IS NULL) OR ([申请科室] = @Original_申请科室)) AND ((@Is"& _ 
+                "Null_申请医师 = 1 AND [申请医师] IS NULL) OR ([申请医师] = @Original_申请医师)) AND ((@IsNull_编号"& _ 
+                " = 1 AND [编号] IS NULL) OR ([编号] = @Original_编号)) AND ([检查科室] = @Original_检查科室) A"& _ 
+                "ND ([检查项目] = @Original_检查项目) AND ((@IsNull_单位 = 1 AND [单位] IS NULL) OR ([单位] = @"& _ 
+                "Original_单位)) AND ((@IsNull_价格 = 1 AND [价格] IS NULL) OR ([价格] = @Original_价格)) A"& _ 
+                "ND ((@IsNull_检查日期 = 1 AND [检查日期] IS NULL) OR ([检查日期] = @Original_检查日期)) AND ((@I"& _ 
+                "sNull_检查时间 = 1 AND [检查时间] IS NULL) OR ([检查时间] = @Original_检查时间)) AND ((@IsNull_检"& _ 
+                "查医师 = 1 AND [检查医师] IS NULL) OR ([检查医师] = @Original_检查医师)) AND ((@IsNull_完成时间 = 1"& _ 
+                " AND [完成时间] IS NULL) OR ([完成时间] = @Original_完成时间)) AND ((@IsNull_状态 = 1 AND [状态]"& _ 
+                " IS NULL) OR ([状态] = @Original_状态)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SELECT ID, 患者编号, 门诊"& _ 
+                "号, 申请日期, 申请时间, 申请科室, 申请医师, 编号, 检查科室, 检查项目, 单位, 价格, 检查结果, 检查意见, 检查日期, 检查时间, 检查医师,"& _ 
+                " 完成时间, 图像, 状态 FROM 检查单 WHERE (ID = @ID)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@患者编号", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "患者编号", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@门诊号", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "门诊号", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

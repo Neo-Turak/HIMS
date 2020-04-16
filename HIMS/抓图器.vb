@@ -1,4 +1,5 @@
 ﻿'written by:Nura
+Imports System.Drawing.Imaging
 
 Public Class 抓图器
     Private bmpFrame As Bitmap
@@ -6,31 +7,31 @@ Public Class 抓图器
     Private rectSelection As Rectangle
     Private bInPhotoMode, bDragging As Boolean
 
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
-        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+    Private Sub OK_Button_Click(sender As Object, e As EventArgs) Handles OK_Button.Click
+        Me.DialogResult = DialogResult.OK
         新增档案.PB_相片.Image = Me.pbPhoto.Image
         新增档案.PB_相片.SizeMode = PictureBoxSizeMode.CenterImage
         Me.Close()
     End Sub
 
-    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
-        Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
+    Private Sub Cancel_Button_Click(sender As Object, e As EventArgs) Handles Cancel_Button.Click
+        Me.DialogResult = DialogResult.Cancel
         Me.Close()
     End Sub
 
-    Private Sub frmMakePhoto_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub frmMakePhoto_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         WebCamVFW.CloseVideo()
         If Not bmpFrame Is Nothing Then bmpFrame.Dispose()
     End Sub
 
-    Private Sub frmMakePhoto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmMakePhoto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         WebCamVFW.Init(, , pbPreview)
         EnableToolbar("Stopped")
     End Sub
 
-    Private Sub tbPropertires_DropDownItemClicked(ByVal sender As Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) _
-                                                  Handles tbProperties.DropDownItemClicked,
-                                                  toolMain.ItemClicked
+    Private Sub tbPropertires_DropDownItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) _
+        Handles tbProperties.DropDownItemClicked,
+                toolMain.ItemClicked
         If e.ClickedItem.OwnerItem Is tbProperties Then
             tbProperties.DropDown.Close()
         End If
@@ -43,7 +44,8 @@ Public Class 抓图器
                 'WebCamVFW.ShowDisplayDialog()
             Case tbPlay.Name
                 If Not WebCamVFW.PlayVideo Then
-                    MessageBox.Show("No camera detected.", "Connection error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("No camera detected.", "Connection error", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error)
                     EnableToolbar("Stopped")
                     Return
                 End If
@@ -66,7 +68,7 @@ Public Class 抓图器
         End Select
     End Sub
 
-    Private Sub EnableToolbar(ByVal strAction As String)
+    Private Sub EnableToolbar(strAction As String)
         tbPlay.Enabled = Not strAction = "Playing"
         tbPause.Enabled = Not tbPlay.Enabled
         tbStop.Enabled = Not strAction = "Stopped"
@@ -86,17 +88,18 @@ Public Class 抓图器
         g.DrawRectangle(Pens.AliceBlue, rectSelection)
         g.Dispose()
         pbPreview.Invalidate()
-        pbPhoto.Image = bmpFrame.Clone(rectSelection, Imaging.PixelFormat.DontCare)
+        pbPhoto.Image = bmpFrame.Clone(rectSelection, PixelFormat.DontCare)
     End Sub
 
-    Private Sub pbPreview_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pbPreview.MouseDown
-        If e.Button = Windows.Forms.MouseButtons.Left Then
+    Private Sub pbPreview_MouseDown(sender As Object, e As MouseEventArgs) Handles pbPreview.MouseDown
+        If e.Button = MouseButtons.Left Then
             bDragging = True
-            dX = e.X : dY = e.Y
+            dX = e.X
+            dY = e.Y
         End If
     End Sub
 
-    Private Sub pbPreview_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pbPreview.MouseMove
+    Private Sub pbPreview_MouseMove(sender As Object, e As MouseEventArgs) Handles pbPreview.MouseMove
         If Not bInPhotoMode Then Return
         If bDragging Then
             With rectSelection
@@ -121,8 +124,8 @@ Public Class 抓图器
         End If
     End Sub
 
-    Private Sub pbPreview_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pbPreview.MouseUp
-        If e.Button = Windows.Forms.MouseButtons.Left Then bDragging = False
+    Private Sub pbPreview_MouseUp(sender As Object, e As MouseEventArgs) Handles pbPreview.MouseUp
+        If e.Button = MouseButtons.Left Then bDragging = False
     End Sub
 
 End Class

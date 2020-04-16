@@ -1,8 +1,8 @@
 ﻿'written by:Nura
+Imports System.ComponentModel
 Imports System.Data.SqlClient
 Imports System.Drawing.Imaging
 Imports System.IO
-Imports Microsoft.VisualBasic.Strings
 
 Public Class 新增档案
 
@@ -16,10 +16,10 @@ Public Class 新增档案
 
         Dim hzylzh As String
         hzylzh = Trim(Me.TB_合作医疗证号.Text)
-        TB_患者编号.Text = Strings.UCase(Hex(hzylzh))
+        TB_患者编号.Text = UCase(Hex(hzylzh))
         CB_结算方式.Text = “合作医疗”
 
-        If Strings.Len(TB_合作医疗证号.Text) >= 10 Then
+        If Len(TB_合作医疗证号.Text) >= 10 Then
             ListBox1.Items.Clear()
             ListBox2.Items.Clear()
 
@@ -39,7 +39,7 @@ Public Class 新增档案
             End Using
         End If
 
-        If Strings.Len(TB_合作医疗证号.Text) = 12 Then
+        If Len(TB_合作医疗证号.Text) = 12 Then
             ListBox1.Items.Clear()
             ListBox2.Items.Clear()
             Using con As New SqlConnection(ConStr)
@@ -64,30 +64,28 @@ Public Class 新增档案
         End If
 
         If Len(hzylzh) = 12 And Strings.Left(hzylzh, 2) = "07" Then
-            TB_家庭住址.Text = "荒地镇" & Strings.Mid(TB_合作医疗证号.Text, 3, 2) & "村  组"
+            TB_家庭住址.Text = "荒地镇" & Mid(TB_合作医疗证号.Text, 3, 2) & "村  组"
 
         ElseIf Len(hzylzh) = 12 And Strings.Left(hzylzh, 2) = "08" Then
-            TB_家庭住址.Text = "敦巴格乡" & Strings.Mid(TB_合作医疗证号.Text, 3, 2) & "村  组"
+            TB_家庭住址.Text = "敦巴格乡" & Mid(TB_合作医疗证号.Text, 3, 2) & "村  组"
 
         ElseIf Len(hzylzh) = 12 Then
-            TB_家庭住址.Text = "外乡镇" & Strings.Mid(TB_合作医疗证号.Text, 3, 2) & "村  组"
+            TB_家庭住址.Text = "外乡镇" & Mid(TB_合作医疗证号.Text, 3, 2) & "村  组"
         End If
-
     End Sub
 
     Private Sub 新增档案_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridView1.DataSource = DbaseHelper.患者总表_14days_select().Tables(0).DefaultView
+        DataGridView1.DataSource = 患者总表_14days_select().Tables(0).DefaultView
         ' DataGridView1.AutoResizeColumnHeadersHeight()
         'DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         TB_合作医疗证号.Select()
-
     End Sub
 
     Private Sub TB_身份证号_TextChanged(sender As Object, e As EventArgs) Handles TB_身份证号.TextChanged
         Dim c, y, z As Integer
         Dim sfzh As String
         sfzh = TB_身份证号.Text
-        If Strings.Len(sfzh) = 18 Then
+        If Len(sfzh) = 18 Then
 
             c = Val(Mid(sfzh, 7, 4))
             y = Mid(sfzh, 7, 8)
@@ -107,7 +105,7 @@ Public Class 新增档案
     End Sub
 
     Private Sub 新增档案_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
-        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Enter) Then
+        If e.KeyChar = ChrW(Keys.Enter) Then
             SendKeys.Send("{Tab}")
             e.Handled = True
         End If
@@ -120,7 +118,7 @@ Public Class 新增档案
         list1.Items.Clear()
         list2.Items.Clear()
 
-        For c As Int32 = 1 To 5
+        For c = 1 To 5
             list1.Items.Add(c)
         Next
         list2.Items.Add("已婚")
@@ -128,7 +126,6 @@ Public Class 新增档案
         list2.Items.Add("未婚")
         list2.Items.Add("丧偶")
         list2.Items.Add("未说明的婚姻状况")
-
     End Sub
 
     Private Sub CB_婚姻状态_LostFocus(sender As Object, e As EventArgs) Handles CB_婚姻状态.LostFocus
@@ -138,7 +135,7 @@ Public Class 新增档案
 
     Private Sub Btn_添加_Click(sender As Object, e As EventArgs) Handles Btn_添加.Click
         '相片的处理
-        Dim mStream As MemoryStream = New MemoryStream()
+        Dim mStream = New MemoryStream()
         If Not PB_相片.Image Is Nothing Then
             PB_相片.Image.Save(mStream, ImageFormat.Jpeg)
         End If
@@ -174,7 +171,7 @@ Public Class 新增档案
         Catch ex As SqlException
             MessageBox.Show(Me, "出现错误：" + ex.Message)
         End Try
-        DataGridView1.DataSource = DbaseHelper.患者总表_14days_select().Tables(0).DefaultView
+        DataGridView1.DataSource = 患者总表_14days_select().Tables(0).DefaultView
     End Sub
 
     Private Sub TB_民族_GotFocus(sender As Object, e As EventArgs)
@@ -200,17 +197,16 @@ Public Class 新增档案
     Private Sub CB_性别_GotFocus(sender As Object, e As EventArgs) Handles CB_性别.GotFocus
         ListBox1.Items.Clear()
         ListBox2.Items.Clear()
-        Dim c As Integer = 1
+        Dim c = 1
         For Each ite As String In CB_性别.Items
             ListBox1.Items.Add(c)
             ListBox2.Items.Add(ite)
             c = c + 1
         Next
-
     End Sub
 
     Private Sub CB_民族_GotFocus(sender As Object, e As EventArgs) Handles CB_民族.GotFocus
-        Dim int As Int32 = 1
+        Dim int = 1
         For Each item As String In CB_民族.Items
             ListBox1.Items.Add(int)
             ListBox2.Items.Add(item)
@@ -221,13 +217,11 @@ Public Class 新增档案
     Private Sub CB_民族_LostFocus(sender As Object, e As EventArgs) Handles CB_民族.LostFocus
         ListBox1.Items.Clear()
         ListBox2.Items.Clear()
-
     End Sub
 
     Private Sub CB_性别_LostFocus(sender As Object, e As EventArgs) Handles CB_性别.LostFocus
         ListBox1.Items.Clear()
         ListBox2.Items.Clear()
-
     End Sub
 
     Private Sub btn_从本地导入_Click(sender As Object, e As EventArgs) Handles btn_从本地导入.Click
@@ -236,7 +230,7 @@ Public Class 新增档案
         If result = DialogResult.OK Then
             Dim path As String = OpenFileDialog1.FileName
             Try
-                PB_相片.Image = System.Drawing.Image.FromFile(path)
+                PB_相片.Image = Image.FromFile(path)
             Catch ex As Exception
                 Console.WriteLine(ex.Message())
             End Try
@@ -245,18 +239,15 @@ Public Class 新增档案
 
     Private Sub Btn_清除相片_Click(sender As Object, e As EventArgs) Handles Btn_清除相片.Click
         PB_相片.Image = Nothing
-
     End Sub
 
     Private Sub Btn_摄像头_Click(sender As Object, e As EventArgs) Handles Btn_摄像头.Click
         抓图器.Show()
         抓图器.Activate()
-
     End Sub
 
-    Private Sub PB_相片_LoadCompleted(sender As Object, e As System.ComponentModel.AsyncCompletedEventArgs) Handles PB_相片.LoadCompleted
+    Private Sub PB_相片_LoadCompleted(sender As Object, e As AsyncCompletedEventArgs) Handles PB_相片.LoadCompleted
         PB_相片.SizeMode = PictureBoxSizeMode.CenterImage
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Btn_网址载入.Click
@@ -271,10 +262,11 @@ Public Class 新增档案
     End Sub
 
     Private Sub Btn_更新相片_Click(sender As Object, e As EventArgs)
-        DbaseHelper.Store_pic_Sql(PB_相片.Image, TB_患者编号.Text.ToString())
+        Store_pic_Sql(PB_相片.Image, TB_患者编号.Text.ToString())
     End Sub
 
-    Private Sub Selector(sender As Object, e As EventArgs) Handles CB_婚姻状态.TextChanged, CB_民族.TextChanged, CB_性别.TextChanged, CB_结算方式.TextChanged
+    Private Sub Selector(sender As Object, e As EventArgs) _
+        Handles CB_婚姻状态.TextChanged, CB_民族.TextChanged, CB_性别.TextChanged, CB_结算方式.TextChanged
         Dim c As String
         Dim t As Short
         Dim 触发器 As ComboBox
@@ -295,7 +287,6 @@ Public Class 新增档案
 
         ListBox2.Items.Add("合作医疗")
         ListBox2.Items.Add("自费")
-
     End Sub
 
     Private Sub CB_结算方式_LostFocus(sender As Object, e As EventArgs) Handles CB_结算方式.LostFocus
@@ -311,16 +302,15 @@ Public Class 新增档案
             par1 = DataGridView1.SelectedRows.Item(0).Cells(0).Value
             par2 = DataGridView1.SelectedRows.Item(0).Cells(1).Value
             par3 = DataGridView1.SelectedRows.Item(0).Cells(2).Value
-            If DbaseHelper.患者总表_删除(par1, par2, par3) Then
+            If 患者总表_删除(par1, par2, par3) Then
                 Message("记录删除成功！", 2, "消息")
-                DataGridView1.DataSource = DbaseHelper.患者总表_14days_select.Tables(0).DefaultView
+                DataGridView1.DataSource = 患者总表_14days_select.Tables(0).DefaultView
             Else
                 Message("删除失败！", 1, "请重试")
             End If
         Else
             Message("请选择要删除的记录！", 1, "错误")
         End If
-
     End Sub
 
     Private Sub TB_年龄_TextChanged(sender As Object, e As EventArgs) Handles TB_年龄.TextChanged
@@ -336,7 +326,7 @@ Public Class 新增档案
     Dim i As Integer = 0
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If DbaseHelper.修改ID_患者总表() Then
+        If 修改ID_患者总表() Then
             i = i + 1
             Label13.Text = "执行：" & i & " 次"
             Label14.Text = "时间：" & (i / 10) & " 秒钟"
@@ -346,11 +336,9 @@ Public Class 新增档案
 
             ' MessageBox.Show("完成！")
         End If
-
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-
     End Sub
 
 End Class

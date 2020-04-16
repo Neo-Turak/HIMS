@@ -1,12 +1,15 @@
 ﻿Imports System.IO
-Imports Sunisoft.IrisSkin.SkinEngine
+Imports Sunisoft.IrisSkin
+
 Public Class 皮肤管理
-    Dim SE As New Sunisoft.IrisSkin.SkinEngine
+    Dim ReadOnly SE As New SkinEngine
     Dim Skins As List(Of String)
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SE.SkinFile = Skins(ListBox1.SelectedIndex)
         SE.Active = True
     End Sub
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         SE.Active = False
     End Sub
@@ -25,5 +28,4 @@ Public Class 皮肤管理
             End Try
         End If
     End Sub
-
 End Class

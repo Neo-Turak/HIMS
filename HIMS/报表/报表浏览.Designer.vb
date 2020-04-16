@@ -29,15 +29,16 @@ Partial Class 报表浏览
         '
         Me.ReportViewer1.AutoSize = True
         Me.ReportViewer1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReportViewer1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "HIMS.Reporter.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(16, 13)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(1)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Padding = New System.Windows.Forms.Padding(1)
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.ShowFindControls = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(739, 787)
+        Me.ReportViewer1.Size = New System.Drawing.Size(782, 812)
         Me.ReportViewer1.TabIndex = 0
         '
         '报表浏览
@@ -46,7 +47,7 @@ Partial Class 报表浏览
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.GrayText
-        Me.ClientSize = New System.Drawing.Size(766, 812)
+        Me.ClientSize = New System.Drawing.Size(782, 812)
         Me.Controls.Add(Me.ReportViewer1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False

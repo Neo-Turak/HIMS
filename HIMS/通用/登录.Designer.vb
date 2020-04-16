@@ -135,6 +135,7 @@ Partial Class 登录
         Me.B_数据库连接器.Name = "B_数据库连接器"
         Me.B_数据库连接器.Size = New System.Drawing.Size(41, 38)
         Me.B_数据库连接器.TabIndex = 11
+        Me.B_数据库连接器.TabStop = False
         Me.B_数据库连接器.UseVisualStyleBackColor = False
         '
         '登录

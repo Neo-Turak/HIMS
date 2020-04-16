@@ -2,7 +2,6 @@
 Public Class 编码转换
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -15,7 +14,6 @@ Public Class 编码转换
         Else
             Message("请输入患者编码或者合作医疗证号", 3, "空值错误！")
         End If
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

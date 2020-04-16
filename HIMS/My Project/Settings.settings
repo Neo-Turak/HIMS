@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=.;Initial Catalog=ghgl;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="诊断" Type="System.String" Scope="User">
+      <Value Profile="(Default)">诊断</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

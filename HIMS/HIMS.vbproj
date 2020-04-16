@@ -120,9 +120,6 @@
     <ApplicationIcon>app_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
-    </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.10.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.10.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
@@ -132,14 +129,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=5.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.5.0.4\lib\net45\EPPlus.dll</HintPath>
-    </Reference>
     <Reference Include="IrisSkin4">
       <HintPath>skins\IrisSkin4.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -166,17 +157,6 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.StdFormat, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic.Compatibility" />
-    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
-    <Reference Include="MSDATASRC, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.6.8\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -184,31 +164,22 @@
     <Reference Include="RDLCReportRunner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RDLCReportRunner.1.0.0\lib\RDLCReportRunner.dll</HintPath>
     </Reference>
-    <Reference Include="Report, Version=1.4.0.34968, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\dois.report.1.4.0.125\lib\net40\Report.dll</HintPath>
-    </Reference>
-    <Reference Include="Report.Base, Version=1.4.0.34968, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\dois.report.1.4.0.125\lib\net40\Report.Base.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Data.SQLite, Version=1.0.112.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.1\lib\net40\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.1\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.1\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Interactive.Async, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Interactive.Async.4.0.0\lib\net461\System.Interactive.Async.dll</HintPath>
     </Reference>
@@ -223,9 +194,6 @@
       <HintPath>..\packages\System.Linq.Async.4.0.0\lib\net461\System.Linq.Async.dll</HintPath>
     </Reference>
     <Reference Include="System.Management" />
-    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -248,7 +216,6 @@
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Threading.Tasks, Version=4.0.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -279,6 +246,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="ghglDataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,6 +267,108 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ghglDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ghglDataSet5.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ghglDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ghglDataSet8.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ghglDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="今日住院报表_DataSource.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>今日住院报表_DataSource.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="今日住院报表_男_女.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>今日住院报表_男_女.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="今日住院报表_结算方式.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>今日住院报表_结算方式.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="住院部\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="住院部\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="住院部\住院医生工作站.Designer.vb">
+      <DependentUpon>住院医生工作站.vb</DependentUpon>
+    </Compile>
+    <Compile Include="住院部\住院医生工作站.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="住院部\医嘱浏览.Designer.vb">
+      <DependentUpon>医嘱浏览.vb</DependentUpon>
+    </Compile>
+    <Compile Include="住院部\医嘱浏览.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="住院部\医嘱记录查询.Designer.vb">
+      <DependentUpon>医嘱记录查询.vb</DependentUpon>
+    </Compile>
+    <Compile Include="住院部\医嘱记录查询.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="住院部\病历浏览.Designer.vb">
+      <DependentUpon>病历浏览.vb</DependentUpon>
+    </Compile>
+    <Compile Include="住院部\病历浏览.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库房站\信息提示器.Designer.vb">
+      <DependentUpon>信息提示器.vb</DependentUpon>
+    </Compile>
+    <Compile Include="库房站\信息提示器.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库房站\出库管理.Designer.vb">
+      <DependentUpon>出库管理.vb</DependentUpon>
+    </Compile>
+    <Compile Include="库房站\出库管理.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库房站\库房管理系统.Designer.vb">
+      <DependentUpon>库房管理系统.vb</DependentUpon>
+    </Compile>
+    <Compile Include="库房站\库房管理系统.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库房站\药典设置.Designer.vb">
+      <DependentUpon>药典设置.vb</DependentUpon>
+    </Compile>
+    <Compile Include="库房站\药典设置.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库房站\药品报废申请单.Designer.vb">
+      <DependentUpon>药品报废申请单.vb</DependentUpon>
+    </Compile>
+    <Compile Include="库房站\药品报废申请单.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="库房站\药库设置.Designer.vb">
+      <DependentUpon>药库设置.vb</DependentUpon>
+    </Compile>
+    <Compile Include="库房站\药库设置.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表\今日住院报表.designer.vb">
+      <DependentUpon>今日住院报表.vb</DependentUpon>
+    </Compile>
+    <Compile Include="报表\今日住院报表.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="报表\今日挂号报表.Designer.vb">
       <DependentUpon>今日挂号报表.vb</DependentUpon>
     </Compile>
@@ -309,6 +379,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>挂号单详情.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="收费工作站\住院收费管理.Designer.vb">
+      <DependentUpon>住院收费管理.vb</DependentUpon>
+    </Compile>
+    <Compile Include="收费工作站\住院收费管理.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="检查单_连接.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -321,31 +397,27 @@
     <Compile Include="报表\报表浏览.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="系统管理\系统设置.Designer.vb">
+      <DependentUpon>系统设置.vb</DependentUpon>
+    </Compile>
+    <Compile Include="系统管理\系统设置.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="通用\汉字处理.vb" />
     <Compile Include="通用\数据库连接测试.Designer.vb">
       <DependentUpon>数据库连接测试.vb</DependentUpon>
     </Compile>
     <Compile Include="通用\数据库连接测试.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="门诊站\临时医嘱.Designer.vb">
+    <Compile Include="住院部\临时医嘱.Designer.vb">
       <DependentUpon>临时医嘱.vb</DependentUpon>
     </Compile>
-    <Compile Include="门诊站\临时医嘱.vb">
+    <Compile Include="住院部\临时医嘱.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="通用\DbaseHelper.vb" />
-    <Compile Include="ghglDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ghglDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="通用\Global_sub.vb" />
-    <Compile Include="通用\远程连接服务.Designer.vb">
-      <DependentUpon>远程连接服务.vb</DependentUpon>
-    </Compile>
-    <Compile Include="通用\远程连接服务.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="通用\皮肤管理.Designer.vb">
       <DependentUpon>皮肤管理.vb</DependentUpon>
     </Compile>
@@ -377,10 +449,10 @@
     <Compile Include="门诊站\挂号.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="门诊站\挂号单.Designer.vb">
-      <DependentUpon>挂号单.vb</DependentUpon>
+    <Compile Include="门诊站\挂号列表.Designer.vb">
+      <DependentUpon>挂号列表.vb</DependentUpon>
     </Compile>
-    <Compile Include="门诊站\挂号单.vb">
+    <Compile Include="门诊站\挂号列表.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="门诊站\新增档案.Designer.vb">
@@ -395,10 +467,10 @@
     <Compile Include="通用\登录.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="通用\主窗体.Designer.vb">
-      <DependentUpon>主窗体.vb</DependentUpon>
+    <Compile Include="门诊站\主窗体.Designer.vb">
+      <DependentUpon>门诊医生工作站.vb</DependentUpon>
     </Compile>
-    <Compile Include="通用\主窗体.vb">
+    <Compile Include="门诊站\门诊医生工作站.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="模块.vb" />
@@ -406,11 +478,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -423,10 +490,10 @@
     <Compile Include="通用\编码转换.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="门诊站\门诊医生工作站.Designer.vb">
-      <DependentUpon>门诊医生工作站.vb</DependentUpon>
+    <Compile Include="门诊站\就诊.Designer.vb">
+      <DependentUpon>就诊.vb</DependentUpon>
     </Compile>
-    <Compile Include="门诊站\门诊医生工作站.vb">
+    <Compile Include="门诊站\就诊.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="通用\密码修改.Designer.vb">
@@ -435,10 +502,10 @@
     <Compile Include="通用\密码修改.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="通用\就诊记录查询.Designer.vb">
+    <Compile Include="住院部\就诊记录查询.Designer.vb">
       <DependentUpon>就诊记录查询.vb</DependentUpon>
     </Compile>
-    <Compile Include="通用\就诊记录查询.vb">
+    <Compile Include="住院部\就诊记录查询.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="门诊站\档案查询.Designer.vb">
@@ -461,12 +528,49 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Reporter.rdlc">
+    <EmbeddedResource Include="Resources\今日住院报表.rdlc" />
+    <EmbeddedResource Include="Resources\检查单.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\今日挂号报表.rdlc" />
     <EmbeddedResource Include="Resources\处方.rdlc">
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="住院部\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="住院部\住院医生工作站.resx">
+      <DependentUpon>住院医生工作站.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="住院部\医嘱浏览.resx">
+      <DependentUpon>医嘱浏览.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="住院部\医嘱记录查询.resx">
+      <DependentUpon>医嘱记录查询.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="住院部\病历浏览.resx">
+      <DependentUpon>病历浏览.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库房站\信息提示器.resx">
+      <DependentUpon>信息提示器.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库房站\出库管理.resx">
+      <DependentUpon>出库管理.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库房站\库房管理系统.resx">
+      <DependentUpon>库房管理系统.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库房站\药典设置.resx">
+      <DependentUpon>药典设置.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库房站\药品报废申请单.resx">
+      <DependentUpon>药品报废申请单.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="库房站\药库设置.resx">
+      <DependentUpon>药库设置.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表\今日住院报表.resx">
+      <DependentUpon>今日住院报表.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="报表\今日挂号报表.resx">
       <DependentUpon>今日挂号报表.vb</DependentUpon>
@@ -474,17 +578,20 @@
     <EmbeddedResource Include="报表\报表浏览.resx">
       <DependentUpon>报表浏览.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="收费工作站\住院收费管理.resx">
+      <DependentUpon>住院收费管理.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统管理\系统设置.resx">
+      <DependentUpon>系统设置.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="通用\数据库连接测试.resx">
       <DependentUpon>数据库连接测试.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="门诊站\临时医嘱.resx">
+    <EmbeddedResource Include="住院部\临时医嘱.resx">
       <DependentUpon>临时医嘱.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="通用\就诊记录查询.resx">
+    <EmbeddedResource Include="住院部\就诊记录查询.resx">
       <DependentUpon>就诊记录查询.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="通用\远程连接服务.resx">
-      <DependentUpon>远程连接服务.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="通用\皮肤管理.resx">
       <DependentUpon>皮肤管理.vb</DependentUpon>
@@ -504,8 +611,8 @@
     <EmbeddedResource Include="门诊站\挂号.resx">
       <DependentUpon>挂号.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="门诊站\挂号单.resx">
-      <DependentUpon>挂号单.vb</DependentUpon>
+    <EmbeddedResource Include="门诊站\挂号列表.resx">
+      <DependentUpon>挂号列表.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="门诊站\新增档案.resx">
       <DependentUpon>新增档案.vb</DependentUpon>
@@ -513,14 +620,14 @@
     <EmbeddedResource Include="通用\登录.resx">
       <DependentUpon>登录.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="通用\主窗体.resx">
-      <DependentUpon>主窗体.vb</DependentUpon>
+    <EmbeddedResource Include="门诊站\主窗体.resx">
+      <DependentUpon>门诊医生工作站.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="门诊站\档案查询.resx">
       <DependentUpon>档案查询.vb</DependentUpon>
@@ -531,22 +638,14 @@
     <EmbeddedResource Include="通用\编码转换.resx">
       <DependentUpon>编码转换.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="门诊站\门诊医生工作站.resx">
-      <DependentUpon>门诊医生工作站.vb</DependentUpon>
+    <EmbeddedResource Include="门诊站\诊断参考管理.resx">
+      <DependentUpon>诊断参考管理.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="门诊站\就诊.resx">
+      <DependentUpon>就诊.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ghglDataSet.xsc">
-      <DependentUpon>ghglDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ghglDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ghglDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ghglDataSet.xss">
-      <DependentUpon>ghglDataSet.xsd</DependentUpon>
-    </None>
     <None Include="ghglDataSet1.xsc">
       <DependentUpon>ghglDataSet1.xsd</DependentUpon>
     </None>
@@ -591,6 +690,28 @@
     <None Include="ghglDataSet4.xss">
       <DependentUpon>ghglDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="ghglDataSet5.xsc">
+      <DependentUpon>ghglDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ghglDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ghglDataSet5.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ghglDataSet5.xss">
+      <DependentUpon>ghglDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ghglDataSet8.xsc">
+      <DependentUpon>ghglDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ghglDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ghglDataSet8.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ghglDataSet8.xss">
+      <DependentUpon>ghglDataSet8.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -602,6 +723,40 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="今日住院报表_DataSource.xsc">
+      <DependentUpon>今日住院报表_DataSource.xsd</DependentUpon>
+    </None>
+    <None Include="今日住院报表_DataSource.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>今日住院报表_DataSource.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="今日住院报表_DataSource.xss">
+      <DependentUpon>今日住院报表_DataSource.xsd</DependentUpon>
+    </None>
+    <None Include="今日住院报表_男_女.xsc">
+      <DependentUpon>今日住院报表_男_女.xsd</DependentUpon>
+    </None>
+    <None Include="今日住院报表_男_女.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>今日住院报表_男_女.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="今日住院报表_男_女.xss">
+      <DependentUpon>今日住院报表_男_女.xsd</DependentUpon>
+    </None>
+    <None Include="今日住院报表_结算方式.xsc">
+      <DependentUpon>今日住院报表_结算方式.xsd</DependentUpon>
+    </None>
+    <None Include="今日住院报表_结算方式.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>今日住院报表_结算方式.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="今日住院报表_结算方式.xss">
+      <DependentUpon>今日住院报表_结算方式.xsd</DependentUpon>
+    </None>
     <None Include="挂号单详情.xsc">
       <DependentUpon>挂号单详情.xsd</DependentUpon>
     </None>
@@ -643,6 +798,8 @@
   <ItemGroup>
     <Content Include="app_icon.ico" />
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\Background.jpeg" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -655,7 +812,11 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="packages.config" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\长期医嘱单.jpg" />
+    <None Include="Resources\临时医嘱单.jpg" />
     <None Include="Resources\hospital.png" />
     <None Include="Resources\app_icon.png" />
     <Content Include="Resources\处方.jpg" />
@@ -676,25 +837,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AxMSTSCLib">
-      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MSTSCLib">
-      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -702,10 +844,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
-    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.1\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.1\build\net40\System.Data.SQLite.Core.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
-  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.1\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.1\build\net40\System.Data.SQLite.Core.targets')" />
 </Project>

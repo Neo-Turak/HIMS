@@ -116,19 +116,21 @@ Public Class WebCamVFW
 #Region " Declares "
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal wMsg As Integer, ByVal wParam As Short, ByVal lParam As Integer) As Integer
+    Private Shared Function SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Short, lParam As Integer) As Integer
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal wMsg As Integer, ByVal wParam As Integer, ByRef lParam As CAPSTATUS) As Integer
+    Private Shared Function SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, ByRef lParam As CAPSTATUS) _
+        As Integer
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal wMsg As Integer, ByVal wParam As Integer, ByRef lParam As BITMAPINFO) As Integer
+    Private Shared Function SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, ByRef lParam As BITMAPINFO) _
+        As Integer
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function DestroyWindow(ByVal hWnd As IntPtr) As Boolean
+    Private Shared Function DestroyWindow(hWnd As IntPtr) As Boolean
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
@@ -136,35 +138,41 @@ Public Class WebCamVFW
     End Function
 
     <DllImport("gdi32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function BitBlt(ByVal hdcDest As IntPtr, ByVal nXDest As Integer, ByVal nYDest As Integer, ByVal nWidth As Integer, ByVal nHeight As Integer, ByVal hdcSrc As IntPtr, ByVal nXSrc As Integer, ByVal nYSrc As Integer, ByVal dwRop As Int32) As Boolean
+    Private Shared Function BitBlt(hdcDest As IntPtr, nXDest As Integer, nYDest As Integer, nWidth As Integer,
+                                   nHeight As Integer, hdcSrc As IntPtr, nXSrc As Integer, nYSrc As Integer,
+                                   dwRop As Int32) As Boolean
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function GetDC(ByVal hWnd As IntPtr) As IntPtr
+    Private Shared Function GetDC(hWnd As IntPtr) As IntPtr
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function GetWindowDC(ByVal hWnd As IntPtr) As IntPtr
+    Private Shared Function GetWindowDC(hWnd As IntPtr) As IntPtr
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function ReleaseDC(ByVal hWnd As IntPtr, ByVal hDC As IntPtr) As Integer
+    Private Shared Function ReleaseDC(hWnd As IntPtr, hDC As IntPtr) As Integer
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function ShowWindow(ByVal hwnd As IntPtr, ByVal nCmdShow As Int32) As Boolean
+    Private Shared Function ShowWindow(hwnd As IntPtr, nCmdShow As Int32) As Boolean
     End Function
 
     <DllImport("user32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function SetWindowPos(ByVal hWnd As IntPtr, ByVal hWndInsertAfter As IntPtr, ByVal x As Integer, ByVal y As Integer, ByVal cx As Integer, ByVal cy As Integer, ByVal wFlags As Integer) As Integer
+    Private Shared Function SetWindowPos(hWnd As IntPtr, hWndInsertAfter As IntPtr, x As Integer, y As Integer,
+                                         cx As Integer, cy As Integer, wFlags As Integer) As Integer
     End Function
 
     <DllImport("avicap32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function capCreateCaptureWindow(ByVal lpszWindowName As String, ByVal dwStyle As Integer, ByVal x As Integer, ByVal y As Integer, ByVal nWidth As Integer, ByVal nHeight As Short, ByVal hWndParent As IntPtr, ByVal nID As Integer) As IntPtr
+    Private Shared Function capCreateCaptureWindow(lpszWindowName As String, dwStyle As Integer, x As Integer,
+                                                   y As Integer, nWidth As Integer, nHeight As Short,
+                                                   hWndParent As IntPtr, nID As Integer) As IntPtr
     End Function
 
     <DllImport("avicap32.dll", SetLastError:=True, CharSet:=CharSet.Auto)>
-    Private Shared Function capGetDriverDescription(ByVal wDriver As Short, ByVal lpszName As String, ByVal cbName As Integer, ByVal lpszVer As String, ByVal cbVer As Integer) As Boolean
+    Private Shared Function capGetDriverDescription(wDriver As Short, lpszName As String, cbName As Integer,
+                                                    lpszVer As String, cbVer As Integer) As Boolean
     End Function
 
 #End Region
@@ -173,12 +181,12 @@ Public Class WebCamVFW
 
 #Region " Private variables "
 
-    Private Shared _deviceName As String = "DefaultDevice"
+    Private Shared ReadOnly _deviceName As String = "DefaultDevice"
     Private Shared _deviceID As Short = -1
     Private Shared _hWnd As IntPtr = IntPtr.Zero
     Private Shared _hwndParent As IntPtr = GetDesktopWindow()
-    Private Shared _deviceList As New List(Of [String])
-    Private Shared _FPS As Integer = 33
+    Private Shared ReadOnly _deviceList As New List(Of [String])
+    Private Shared ReadOnly _FPS As Integer = 33
     Private Shared _Visible As Boolean
     Private Shared _OutputRect As New Rectangle(0, 0, 320, 240)
     Private Shared _CaptureRect As New Rectangle(0, 0, 320, 240)
@@ -188,28 +196,28 @@ Public Class WebCamVFW
 
 #Region " Properties "
 
-    Public Shared Property OutputRectangle() As Rectangle
+    Public Shared Property OutputRectangle As Rectangle
         Get
             Return _OutputRect
         End Get
-        Set(ByVal value As Rectangle)
-            _OutputRect = value
+        Set
+            _OutputRect = Value
         End Set
     End Property
 
-    Public Shared ReadOnly Property Status() As VideoStatus
+    Public Shared ReadOnly Property Status As VideoStatus
         Get
             Return _status
         End Get
     End Property
 
-    Public Shared Property Visible() As Boolean
+    Public Shared Property Visible As Boolean
         Get
             Return _Visible
         End Get
-        Set(ByVal value As Boolean)
-            If value = _Visible Then Return
-            _Visible = value
+        Set
+            If Value = _Visible Then Return
+            _Visible = Value
             If _hWnd.Equals(IntPtr.Zero) Then Return
             If _Visible Then
                 ShowWindow(_hWnd, 5)
@@ -242,12 +250,12 @@ Public Class WebCamVFW
     End Function
 
     Public Shared Function PlayVideo() As Boolean
-        Dim c As Boolean = False
+        Dim c = False
         If _hWnd.Equals(IntPtr.Zero) Then
             _hWnd = capCreateCaptureWindow(_deviceName, WS_VISIBLE Or WS_CHILD,
-                             _OutputRect.Left, _OutputRect.Top,
-                             _OutputRect.Width, _OutputRect.Height,
-                             _hwndParent, 0)
+                                           _OutputRect.Left, _OutputRect.Top,
+                                           _OutputRect.Width, _OutputRect.Height,
+                                           _hwndParent, 0)
             If _hWnd.Equals(IntPtr.Zero) Then Return False
         End If
         If SendMessage(_hWnd, WM_CAP_DRIVER_CONNECT, _deviceID, 0) Then
@@ -273,7 +281,7 @@ Public Class WebCamVFW
     End Function
 
     Public Shared Function ResumePlay() As Boolean
-        Dim c As Boolean = False
+        Dim c = False
         If _hWnd.Equals(IntPtr.Zero) Then Return False
         If SendMessage(_hWnd, WM_CAP_DRIVER_CONNECT, _deviceID, 0) Then
             SendMessage(_hWnd, WM_CAP_SET_PREVIEWRATE, _FPS, 0)
@@ -336,7 +344,7 @@ Public Class WebCamVFW
 
             BitBlt(HDC2, 0, 0, _OutputRect.Width, _OutputRect.Height, HDC1, 0, 0, 13369376)
 
-            Dim bmp As Bitmap = CType(srcBmp.Clone(), Bitmap)
+            Dim bmp = CType(srcBmp.Clone(), Bitmap)
 
             'Clean Up
             srcPic.ReleaseHdc()
@@ -353,11 +361,10 @@ Public Class WebCamVFW
 
 #Region " Private methods "
 
-    Private Shared Sub ShowPreview(ByVal fShow As Boolean)
+    Private Shared Sub ShowPreview(fShow As Boolean)
         If _hWnd.Equals(IntPtr.Zero) Then Return
         If Not fShow Then SendMessage(_hWnd, WM_CAP_STOP, 0, 0)
         SendMessage(_hWnd, WM_CAP_SET_PREVIEW, fShow, 0)
-
     End Sub
 
     Private Shared Function GetDeviceList() As Boolean

@@ -28,11 +28,11 @@ Partial Class 档案查询
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(182, 12)
+        Me.Button1.Location = New System.Drawing.Point(125, 279)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 35)
+        Me.Button1.Size = New System.Drawing.Size(193, 35)
         Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "待开发！！！！！！！！！！！"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'PrintDocument1

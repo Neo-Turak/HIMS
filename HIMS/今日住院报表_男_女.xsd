@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="今日住院报表_男_女" targetNamespace="http://tempuri.org/今日住院报表_男_女.xsd" xmlns:mstns="http://tempuri.org/今日住院报表_男_女.xsd" xmlns="http://tempuri.org/今日住院报表_男_女.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="今日挂号单报表" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="今日挂号单报表 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HIMS.My.MySettings.GlobalReference.Default.今日挂号单报表" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="今日住院报表_男_女TableAdapter" GeneratorDataComponentClassName="今日住院报表_男_女TableAdapter" Name="今日住院报表_男_女" UserDataComponentName="今日住院报表_男_女TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="今日挂号单报表 (MySettings)" DbObjectName="ghgl.dbo.今日住院报表_男_女" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT 男, 女 FROM dbo.今日住院报表_男_女</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="男" DataSetColumn="男" />
+              <Mapping SourceColumn="女" DataSetColumn="女" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="今日住院报表_男_女" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="今日住院报表_男_女" msprop:Generator_UserDSName="今日住院报表_男_女">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="今日住院报表_男_女" msprop:Generator_TableClassName="今日住院报表_男_女DataTable" msprop:Generator_TableVarName="table今日住院报表_男_女" msprop:Generator_TablePropName="_今日住院报表_男_女" msprop:Generator_RowDeletingName="今日住院报表_男_女RowDeleting" msprop:Generator_RowChangingName="今日住院报表_男_女RowChanging" msprop:Generator_RowEvHandlerName="今日住院报表_男_女RowChangeEventHandler" msprop:Generator_RowDeletedName="今日住院报表_男_女RowDeleted" msprop:Generator_UserTableName="今日住院报表_男_女" msprop:Generator_RowChangedName="今日住院报表_男_女RowChanged" msprop:Generator_RowEvArgName="今日住院报表_男_女RowChangeEvent" msprop:Generator_RowClassName="今日住院报表_男_女Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="男" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column男" msprop:Generator_ColumnPropNameInRow="男" msprop:Generator_ColumnPropNameInTable="男Column" msprop:Generator_UserColumnName="男" type="xs:int" minOccurs="0" />
+              <xs:element name="女" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column女" msprop:Generator_ColumnPropNameInRow="女" msprop:Generator_ColumnPropNameInTable="女Column" msprop:Generator_UserColumnName="女" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

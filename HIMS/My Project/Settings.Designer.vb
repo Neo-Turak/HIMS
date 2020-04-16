@@ -63,6 +63,18 @@ Namespace My
                 Return CType(Me("今日挂号单报表"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("诊断")>  _
+        Public Property 诊断() As String
+            Get
+                Return CType(Me("诊断"),String)
+            End Get
+            Set
+                Me("诊断") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

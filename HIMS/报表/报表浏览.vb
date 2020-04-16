@@ -1,11 +1,12 @@
 ﻿Imports Microsoft.Reporting.WinForms
+
 Public Class 报表浏览
     Public 患者姓名, 性别, 年龄, 结算方式, 地址, 诊断, 检查项目, 规格, 价格, 自费金额, 自费总金额, 划价员, 申请科室, 申请医师, 收费员, 申请时间 As ReportParameter
 
     Private Sub 报表浏览_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Init()
         Dim rsource As ReportDataSource
-        rsource = New ReportDataSource("DataSet1", DbaseHelper.Get_检查单("10760CCD43").Tables(0))
+        rsource = New ReportDataSource("DataSet1", Get_检查单("10760CCD43").Tables(0))
         ' Dim size As Printing.PaperSize = New Printing.PaperSize
         ' size.RawKind = Printing.PaperKind.B5
         'Me.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("\..\..\处方.rdlc"))
@@ -32,8 +33,8 @@ Public Class 报表浏览
         Me.ReportViewer1.LocalReport.SetParameters(Me.申请时间)
         Me.ReportViewer1.RefreshReport()
     End Sub
-    Private Sub Init()
 
+    Private Sub Init()
 
         患者姓名 = New ReportParameter()
         性别 = New ReportParameter()

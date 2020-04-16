@@ -1,13 +1,12 @@
 ﻿'written by:Nura
-
+'这里声明一下:DataReader.hasRows()跟Read()不能同时使用。会跳过第一个行.
 Imports System.Data.SqlClient
 Imports System.Drawing.Imaging
 Imports System.IO
-
 Module DbaseHelper
     Public Const ConStr As String = "server=127.0.0.1;UID=sa;PWD=root;database=ghgl;persist Security Info=True;"
 
-    Public Function CheckID(ByVal ID As String) As List(Of String)
+    Public Function CheckID(ID As String) As List(Of String)
         Dim lst As New List(Of String)
         Dim cn As SqlConnection
         Dim cmd As SqlCommand
@@ -28,19 +27,20 @@ Module DbaseHelper
 
     '这个方法用于把图片存储在数据库里
 
-    Public Sub Store_pic_Sql(ByVal img As Image, ByVal id As String)
+    Public Sub Store_pic_Sql(img As Image, id As String)
 
         'for sql server
-        Dim cn As SqlConnection = New SqlConnection With {
-            .ConnectionString = "Data Source=127.0.0.1;Initial Catalog=ghgl;Persist Security Info=True;User ID=sa;Password=root"
-        }
+        Dim cn = New SqlConnection With {
+                .ConnectionString =
+                "Data Source=127.0.0.1;Initial Catalog=ghgl;Persist Security Info=True;User ID=sa;Password=root"
+                }
 
         'for SQL
         Dim sql As String = "update 患者总表 set 相片 =@imgData where 患者编号 ='" + id + "'"
-        Dim command1 As SqlCommand = New SqlCommand(sql, cn)
+        Dim command1 = New SqlCommand(sql, cn)
         Dim sqlpara As New SqlParameter("imgData", SqlDbType.Image)
 
-        Dim mStream As MemoryStream = New MemoryStream()
+        Dim mStream = New MemoryStream()
         img.Save(mStream, ImageFormat.Jpeg)
         sqlpara.SqlValue = mStream.GetBuffer
         command1.Parameters.Add(sqlpara)
@@ -50,24 +50,24 @@ Module DbaseHelper
     End Sub
 
     '这个方法用于从数据库提取照片
-    Public Function Load_Pic_Sql(ByVal id As Integer) As Image
+    Public Function Load_Pic_Sql(id As Integer) As Image
         'for sql server
-        Dim conn As SqlConnection = New SqlConnection With {
-            .ConnectionString = "Data Source=datasource;Initial Catalog=LoadTest;Persist Security Info=True;User ID=test;Password=123"
-        }
+        Dim conn = New SqlConnection With {
+                .ConnectionString =
+                "Data Source=datasource;Initial Catalog=LoadTest;Persist Security Info=True;User ID=test;Password=123"
+                }
         'for SQL
         Dim sql As String = "select img from picture where id = " & id
-        Dim command1 As SqlCommand = New SqlCommand(sql, conn)
+        Dim command1 = New SqlCommand(sql, conn)
         conn.Open()
         Dim reader As SqlDataReader = command1.ExecuteReader
         reader.Read()
-        Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
+        Dim bitPic = CType(reader.GetValue(0), Byte())
         conn.Close()
 
-        Dim mStream As MemoryStream = New MemoryStream(bitPic)
+        Dim mStream = New MemoryStream(bitPic)
         Dim img As Image = Image.FromStream(mStream)
         Return img
-
     End Function
 
     Public Function UseProc() As DataSet
@@ -102,8 +102,8 @@ Module DbaseHelper
         Return Dset
     End Function
 
-    Public Function 患者总表_删除(ByVal pr1 As String, ByVal pr2 As String, ByVal pr3 As String) As Boolean
-        Dim value As Boolean = False
+    Public Function 患者总表_删除(pr1 As String, pr2 As String, pr3 As String) As Boolean
+        Dim value = False
         Try
             Using cn As New SqlConnection(ConStr)
                 cn.Open()
@@ -127,7 +127,7 @@ Module DbaseHelper
         Return value
     End Function
 
-    Public Function Get_药品库存(ByVal remember As String) As DataSet
+    Public Function Get_药品库存(remember As String) As DataSet
         Dim dset As DataSet
 
         Using cn As New SqlConnection(ConStr)
@@ -138,8 +138,8 @@ Module DbaseHelper
                 sql.Parameters.AddWithValue("@Param1", remember)
                 sql.ExecuteNonQuery()
                 Dim dt As New SqlDataAdapter With {
-                    .SelectCommand = sql
-                }
+                        .SelectCommand = sql
+                        }
                 dset = New DataSet("助记码")
                 dt.Fill(dset)
             End Using
@@ -152,20 +152,18 @@ Module DbaseHelper
         Dim dset As New DataSet("挂号单")
         Using cn As New SqlConnection(ConStr)
             cn.Open()
-            Using sql As New SqlCommand("SELECT * FROM 挂号单详情 ORDER BY 挂号时间")
+            Using sql As New SqlCommand("SELECT * FROM 挂号单详情 ORDER BY 序号 ASC")
                 'sql.CommandTimeout = 300
                 sql.Connection = cn
                 sql.CommandType = CommandType.Text
                 Using dr As SqlDataReader = sql.ExecuteReader
-                    If dr.HasRows Then
-                        dset.Load(dr, 3, "挂号单")
-                    End If
-
+                    dset.Load(dr, 3, "挂号单")
                 End Using
             End Using
         End Using
         Return dset
     End Function
+
     Public Function Get_挂号单详情_男_女() As DataSet
         Dim dset As New DataSet("挂号单")
         Using cn As New SqlConnection(ConStr)
@@ -178,16 +176,14 @@ Module DbaseHelper
                     If dr.HasRows Then
                         dset.Load(dr, 3, "男女")
                     End If
-
                 End Using
             End Using
         End Using
         Return dset
     End Function
 
-
     Public Function 修改ID_患者总表() As Boolean
-        Dim flag As Boolean = False
+        Dim flag = False
         Dim value As String
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -199,9 +195,10 @@ Module DbaseHelper
                         value = dr.GetString(1)
                         dr.Close()
                         flag = True
-                        Dim decod As String = Strings.UCase(Hex(value))
+                        Dim decod As String = UCase(Hex(value))
 
-                        Using qt As New SqlCommand("update 患者总表 set 患者编号='" + decod + "' where 合作医疗号='" + value + "'", cn)
+                        Using _
+                            qt As New SqlCommand("update 患者总表 set 患者编号='" + decod + "' where 合作医疗号='" + value + "'", cn)
                             Console.WriteLine("{0}------{1}", value, decod)
                             qt.ExecuteNonQuery()
                         End Using
@@ -237,7 +234,7 @@ Module DbaseHelper
         Return dset
     End Function
 
-    Public Function Get门诊诊断模板_查询(ByVal 诊断 As String) As DataSet
+    Public Function Get门诊诊断模板_查询(诊断 As String) As DataSet
         Dim dset As New DataSet("门诊模板")
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -256,7 +253,7 @@ Module DbaseHelper
         Return dset
     End Function
 
-    Public Function Get门诊病历(ByVal 患者编号 As String) As DataSet
+    Public Function Get门诊病历(患者编号 As String) As DataSet
         Dim dset As New DataSet("门诊病历")
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -275,33 +272,30 @@ Module DbaseHelper
         Return dset
     End Function
 
-    Public Function Add_挂号单(ByVal 患者编号 As String, ByVal 结算方式 As String， ByVal 状态 As String) As Integer
+    Public Function Add_挂号单(患者编号 As String, 结算方式 As String, 状态 As String) As Integer
         Dim val As Integer
         Using cn As New SqlConnection(ConStr)
             cn.Open()
-            '为了解决SQL引起的错误，引用了Try...
-            Try
-                Using sql As New SqlCommand("dbo.DAL_挂号单_InsertCommand")
-                    sql.CommandType = CommandType.StoredProcedure
-                    sql.Connection = cn
-                    sql.Parameters.AddWithValue("@患者编号", 患者编号)
-                    sql.Parameters.AddWithValue("@结算方式", 结算方式)
-                    sql.Parameters.AddWithValue("@状态", 状态)
-                    val = sql.ExecuteNonQuery
-                End Using
-            Catch ex As SqlException
-                MsgBox("出现错误:" + ex.Message, MsgBoxStyle.Information)
-            Finally
-                cn.Close()
-            End Try
+            '为了解决SQL引起的错误,引用了Try...
+            'Try
+            Using sql As New SqlCommand("dbo.DAL_挂号单_InsertCommand")
+                sql.CommandType = CommandType.StoredProcedure
+                sql.Connection = cn
+                sql.Parameters.AddWithValue("@患者编号", 患者编号)
+                sql.Parameters.AddWithValue("@结算方式", 结算方式)
+                sql.Parameters.AddWithValue("@状态", 状态)
+                val = sql.ExecuteNonQuery()
+            End Using
+            ' Catch ex As SqlException
+            'MsgBox("出现错误:" + ex.Message, MsgBoxStyle.Information)
+            '  Finally
+            ' End Try
             'try 结束
-            cn.Close()
         End Using
-        GC.Collect()
         Return val
     End Function
 
-    Public Sub Add_门诊病历模板(ByVal 诊断 As String, ByVal 主诉 As String, 医嘱建议 As String)
+    Public Sub Add_门诊病历模板(诊断 As String, 主诉 As String, 医嘱建议 As String)
         Using cn As New SqlConnection(ConStr)
             cn.Open()
 
@@ -336,7 +330,7 @@ Module DbaseHelper
         Return list
     End Function
 
-    Public Sub Set_入院单(ByVal 患者编号 As String, ByVal 住院部 As String, ByVal 诊断 As String)
+    Public Sub Set_入院单(患者编号 As String, 住院部 As String, 诊断 As String)
         Using cn As New SqlConnection(ConStr)
             cn.Open()
 
@@ -363,7 +357,7 @@ Module DbaseHelper
         Return dset
     End Function
 
-    Public Sub Del_住院单_待收费(ByVal 患者编号 As String)
+    Public Sub Del_住院单_待收费(患者编号 As String)
         Using cn As New SqlConnection(ConStr)
             cn.Open()
             Using sql As New SqlCommand("delete 住院单 where 患者编号='" & 患者编号 & "' and 状态='待收费'", cn)
@@ -373,8 +367,9 @@ Module DbaseHelper
         End Using
     End Sub
 
-    Public Function Add_门诊处方(ByVal 患者编号 As String, ByVal 药品名称 As String, ByVal 规格 As String, ByVal 数量 As Int16,
-    ByVal 单位 As String, ByVal 剂量 As String, ByVal 单价 As Single, ByVal 金额 As Double, ByVal 用法 As String, ByVal 科室 As String, ByVal 医生 As String)
+    Public Function Add_门诊处方(患者编号 As String, 药品名称 As String, 规格 As String, 数量 As Int16,
+                             单位 As String, 剂量 As String, 单价 As Single, 金额 As Double, 用法 As String, 科室 As String,
+                             医生 As String)
         Dim c As Integer
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -384,7 +379,7 @@ Module DbaseHelper
                 sql.Connection = cn
                 sql.Parameters.AddWithValue("@患者编号", 患者编号)
                 sql.Parameters.AddWithValue("@药品名称", 药品名称)
-                sql.Parameters.AddWithValue("@规格", 规格）
+                sql.Parameters.AddWithValue("@规格", 规格)
                 sql.Parameters.AddWithValue("@数量”, 数量)
                 sql.Parameters.AddWithValue("@单位", 单位)
                 sql.Parameters.AddWithValue("@剂量", 剂量)
@@ -401,7 +396,7 @@ Module DbaseHelper
         Return c
     End Function
 
-    Public Function Get_门诊处方(ByVal 患者编号 As String) As DataSet
+    Public Function Get_门诊处方(患者编号 As String) As DataSet
         Get_门诊处方 = New DataSet
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -417,7 +412,7 @@ Module DbaseHelper
         End Using
     End Function
 
-    Public Function Del_门诊处方(ByVal 患者编号 As String, ByVal 药品名称 As String, ByVal 日期 As Date, ByVal 时间 As TimeSpan) As Integer
+    Public Function Del_门诊处方(患者编号 As String, 药品名称 As String, 日期 As Date, 时间 As TimeSpan) As Integer
         Dim result As Integer
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -435,14 +430,14 @@ Module DbaseHelper
         Return result
     End Function
 
-    Public Function Get_住院单(ByVal ID As String) As DataSet
+    Public Function Get_住院单(id As String) As DataSet
         Get_住院单 = New DataSet
         Using cn As New SqlConnection(ConStr)
             cn.Open()
             Using sql As New SqlCommand("[dbo].[DAL_住院单_ID_SelectCommand]")
                 sql.Connection = cn
                 sql.CommandType = CommandType.StoredProcedure
-                sql.Parameters.AddWithValue("@患者ID", ID)
+                sql.Parameters.AddWithValue("@患者ID", id)
 
                 Using da As New SqlDataAdapter
                     da.SelectCommand = sql
@@ -470,10 +465,10 @@ Module DbaseHelper
         Return Get_住院单_待就诊
     End Function
 
-    Public Sub Del_住院单(ByVal ID As Integer, 患者编号 As String)
+    Public Sub Del_住院单(id As Integer, 患者编号 As String)
         Using cn As New SqlConnection(ConStr)
             cn.Open()
-            Using sql As New SqlCommand("DELETE 住院单 WHERE id=" & ID & " and 患者编号='" & 患者编号 & "'")
+            Using sql As New SqlCommand("DELETE 住院单 WHERE id=" & id & " and 患者编号='" & 患者编号 & "'")
                 sql.Connection = cn
                 sql.CommandType = CommandType.Text
                 sql.ExecuteNonQuery()
@@ -501,7 +496,7 @@ Module DbaseHelper
         End Using
     End Function
 
-    Public Function Get_检查项目名称(ByVal 科室 As String) As List(Of String)
+    Public Function Get_检查项目名称(科室 As String) As List(Of String)
         Get_检查项目名称 = New List(Of String)
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -522,24 +517,27 @@ Module DbaseHelper
         End Using
     End Function
 
-    Public Function Get_检查项(ByVal 科室 As String, ByVal 子项 As String) As DataSet
+    Public Function Get_检查项(科室 As String, 子项 As String) As DataSet
         Get_检查项 = New DataSet("检查项")
         Using cn As New SqlConnection(ConStr)
             cn.Open()
-            Using sql As New SqlCommand("select 项目名称,单位,价格 from 检查项目 where 所属科室='" & 科室 & "' and 项目名称='" & 子项 & "' and 是否可用=1 ORDER by ID") With {
-                .Connection = cn,
-                .CommandType = CommandType.Text
-                }
+            Using _
+                sql As _
+                    New SqlCommand(
+                        "select 项目名称,单位,价格 from 检查项目 where 所属科室='" & 科室 & "' and 项目名称='" & 子项 &
+                        "' and 是否可用=1 ORDER by ID") With {
+                            .Connection = cn,
+                            .CommandType = CommandType.Text
+                            }
                 Using dr As SqlDataReader = sql.ExecuteReader
                     Get_检查项.Load(dr, 1, "检查项")
                 End Using
             End Using
             cn.Close()
         End Using
-
     End Function
 
-    Public Function Get_检查单(ByVal 患者编号 As String) As DataSet
+    Public Function Get_检查单(患者编号 As String) As DataSet
         Get_检查单 = New DataSet
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -560,16 +558,17 @@ Module DbaseHelper
                 '*********第二种,数据阅载器************
                 Using dr As SqlDataReader = sql.ExecuteReader
                     Get_检查单.Load(dr, LoadOption.OverwriteChanges, "检查单")
-                    '*******使用简单,反向操作，数据装载方式**********
+                    '*******使用简单,反向操作,数据装载方式**********
                     '*****数据集主动
                 End Using
             End Using
         End Using
     End Function
 
-    Public Sub Add_检查单(ByVal 患者编号 As String, ByVal 检查科室 As String, ByVal 检查项目 As String, ByVal 单位 As String, ByVal 价格 As Single, ByVal 申请科室 As String, ByVal 申请医师 As String, ByVal 状态 As String)
-        Dim var_检查科室 As SqlParameter = New SqlParameter
-        Dim var_患者编号 As SqlParameter = New SqlParameter
+    Public Sub Add_检查单(患者编号 As String, 检查科室 As String, 检查项目 As String, 单位 As String, 价格 As Single, 申请科室 As String,
+                       申请医师 As String, 状态 As String)
+        Dim var_检查科室 = New SqlParameter
+        Dim var_患者编号 = New SqlParameter
 
         Using cn As New SqlConnection(ConStr)
             cn.Open()
@@ -590,7 +589,6 @@ Module DbaseHelper
                 sql.ExecuteNonQuery()
             End Using
         End Using
-
     End Sub
 
     Public Function Get_病区分类() As DataSet
@@ -631,4 +629,254 @@ Module DbaseHelper
         Return count
     End Function
 
+    Public Function Get_挂号单详情_结算方式() As DataSet
+        Get_挂号单详情_结算方式 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select * from 挂号单详情_结算方式")
+                sql.CommandType = CommandType.Text
+                sql.Connection = cn
+                Using dr As SqlDataReader = sql.ExecuteReader()
+                    If dr.HasRows Then
+                        Get_挂号单详情_结算方式.Load(dr, 3, "今日挂号单_结算方式_DataSet")
+                    End If
+                End Using
+            End Using
+        End Using
+        Return Get_挂号单详情_结算方式
+    End Function
+
+    Public Function Get_门诊病历模板() As DataSet
+        Get_门诊病历模板 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select * from 门诊病历模板 order by ID ASC")
+                sql.Connection = cn
+                sql.CommandType = CommandType.Text
+                sql.CommandTimeout = 200 '2second
+                Using dr As SqlDataReader = sql.ExecuteReader()
+                    If dr.HasRows Then
+                        Get_门诊病历模板.Load(dr, 3, "诊断参考")
+                    End If
+                End Using
+            End Using
+        End Using
+        Return Get_门诊病历模板
+    End Function
+
+    Public Sub Update_门诊病历模板(ByVal id As Int32, ByVal 诊断 As String, ByVal 主诉 As String)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("update 门诊病历模板 set 诊断='" & 诊断 & "' , 主诉='" & 主诉 & "' where id=" & id)
+                sql.CommandType = CommandType.Text
+                sql.Connection = cn
+                sql.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+    Public Sub Delete_门诊病历模板(ByVal ID As Int32)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand With {
+                .CommandText = "delete FROM 门诊病历模板 WHERE ID=" & ID,
+                .CommandType = CommandType.Text,
+                .Connection = cn,
+                .CommandTimeout = 200
+                }
+                sql.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+    Public Function Get_药库资料() As DataSet
+        Get_药库资料 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select * from 库房资料 order by 编号", cn)
+                sql.CommandType = CommandType.Text
+                sql.CommandTimeout = 200
+                Using dr As SqlDataReader = sql.ExecuteReader()
+                    If dr.HasRows Then
+                        Get_药库资料.Load(dr, 3, "药库资料")
+                    End If
+                End Using
+            End Using
+        End Using
+        Return Get_药库资料
+    End Function
+    Public Sub Add_药库资料(名称 As String, 位置 As String, 备注 As String)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand
+                sql.CommandText = "insert into 库房资料(名称,位置,备注) values(@par1,@par2,@par3)"
+                sql.CommandTimeout = 200
+                sql.Parameters.AddWithValue("@par1", 名称)
+                sql.Parameters.AddWithValue("@par2", 位置)
+                sql.Parameters.AddWithValue("@par2", 备注)
+                sql.Connection = cn
+                sql.ExecuteNonQuery()
+
+            End Using
+        End Using
+    End Sub
+    Public Sub Del_药库资料(编号 As Integer)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("delete from 药库资料 where 编号=" + 编号, cn)
+                sql.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    Public Function Get_药典() As SqlDataAdapter
+        Dim 药典 = New DataSet
+        Dim dadapter As SqlDataAdapter
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select * from 药典 order by ID", cn)
+                Using dr As SqlDataReader = sql.ExecuteReader
+                    药典.Load(dr, 3, "药典")
+                    dadapter = New SqlDataAdapter
+                    dadapter.SelectCommand = sql
+                    dadapter.Fill(药典)
+                End Using
+            End Using
+        End Using
+        Return dadapter
+    End Function
+    Public Sub Del_药典(ID As Integer)
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("delete fom 药典 where id='" + ID + "'")
+                sql.Connection = cn
+                sql.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+    Public Sub Add_药典(流水号 As Integer, 通用名 As String, 药品类型 As String, 速记码 As String, 生产企业_总代理商 As String, 药库规格 As String, 剂型 As String, 采购价 As Single)
+        Dim result As Integer
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("dbo.DAL_药典_InsertCommand")
+                sql.CommandType = CommandType.StoredProcedure
+                sql.Connection = cn
+                sql.Parameters.AddWithValue("@流水号", 流水号)
+                sql.Parameters.AddWithValue("@通用名", 通用名)
+                sql.Parameters.AddWithValue("@药品类型", 药品类型)
+                sql.Parameters.AddWithValue("@速记码", 速记码)
+                sql.Parameters.AddWithValue("@生产企业_总代理商", 生产企业_总代理商)
+                sql.Parameters.AddWithValue("@药库规格", 药库规格)
+                sql.Parameters.AddWithValue("@剂型", 剂型)
+                sql.Parameters.AddWithValue("@采购价", 采购价)
+                result = sql.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    Public Function Get_住院单() As DataSet
+        Get_住院单 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select * from 住院单", cn)
+                Dim dreader As SqlDataReader = sql.ExecuteReader()
+                Get_住院单.Load(dreader, 3, "住院单")
+            End Using
+        End Using
+        Return Get_住院单
+    End Function
+
+    Public Function Get_收费记录(患者编号 As String) As DataSet
+        Get_收费记录 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select 流水号,收费日期,收费时间,收费原因,收费金额,收费人 from 收费记录 where 患者编号='" & 患者编号 & "'", cn)
+                Dim dr As SqlDataReader = sql.ExecuteReader()
+                Get_收费记录.Load(dr, 3, "收费记录")
+            End Using
+        End Using
+        Return Get_收费记录
+    End Function
+    Public Function 检验用户(id As String, pwd As String) As String()
+        Dim result(3) As String
+        Using cn As New SqlConnection(ConStr)
+            cn.Open()
+            Using sql As New SqlCommand("select 用户名,科室,职位 from 用户表 where id=" + id + " and 密码='" + pwd + "'", cn)
+                Dim dr As SqlDataReader = sql.ExecuteReader()
+                If dr.HasRows Then
+                    While dr.Read
+                        result(0) = dr.GetString(0) '用户名
+                        result(1) = dr.GetString(1) '科室
+                        result(2) = dr.GetString(2) '职位
+                    End While
+                Else
+                    Console.WriteLine("没有数集")
+                End If
+            End Using
+        End Using
+        Return result
+    End Function
+    Public Function 密码验证(id As String, pwd As String) As Boolean
+        Dim result As Boolean = False
+        Using cn As New SqlConnection(ConStr)
+            Using sql As New SqlCommand("select * from 用户表 where id='" + id + "'" + " and 密码='" + "'", cn)
+                cn.Open()
+                Dim dr As SqlDataReader = sql.ExecuteReader
+                If dr.HasRows Then
+                    result = True
+                End If
+            End Using
+        End Using
+        Return result
+    End Function
+    Public Function Get_已执行医嘱() As DataSet
+        Get_已执行医嘱 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            Using sql As New SqlCommand("SELECT * FROM 已执行医嘱 ORDER BY 床号,日期, 时间 ASC")
+                cn.Open()
+                sql.Connection = cn
+                sql.CommandTimeout = 200
+                Dim dr As SqlDataReader = sql.ExecuteReader
+                Get_已执行医嘱.Load(dr, LoadOption.PreserveChanges, "已执行医嘱")
+            End Using
+        End Using
+    End Function
+    Public Sub Update_密码(ID As String, pwd As String)
+        Using cn As New SqlConnection(ConStr)
+            Using sql As New SqlCommand("update 用户表 set 密码='" + "' where id='" + ID + "'")
+                sql.Connection = cn
+                cn.Open()
+                sql.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+    Public Function Get_住院病历(患者编号 As String) As DataSet
+        Get_住院病历 = New DataSet
+        Using cn As New SqlConnection(ConStr)
+            Using sql As New SqlCommand("SELECT * FROM 住院病历 where 患者编号='" + 患者编号 + "' ORDER BY 就诊日期")
+                cn.Open()
+                sql.Connection = cn
+                sql.CommandTimeout = 200
+                Dim dr As SqlDataReader = sql.ExecuteReader
+                Get_住院病历.Load(dr, LoadOption.PreserveChanges, "住院病历")
+            End Using
+        End Using
+        Return Get_住院病历
+    End Function
+    Public Function Get_患者信息(患者编号 As String) As String()
+        Dim result(3) As String
+        Using cn As New SqlConnection(ConStr)
+            Using sql As New SqlCommand("select 患者姓名,性别, 年龄 from 患者总表 where 患者编号='" + 患者编号 + "'")
+                sql.Connection = cn
+                cn.Open()
+                Dim dr As SqlDataReader = sql.ExecuteReader()
+                If dr.HasRows Then
+                    While dr.Read
+                        result(0) = dr.GetString(0)
+                        result(1) = dr.GetString(1)
+                        result(2) = dr.GetByte(2)
+                    End While
+                End If
+            End Using
+        End Using
+        Return result
+    End Function
 End Module

@@ -27,23 +27,27 @@ Partial Class 今日挂号报表
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.AutoScroll = True
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "HIMS.今日挂号报表.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 12)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(1)
+        Me.ReportViewer1.MinimumSize = New System.Drawing.Size(800, 743)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.ShowFindControls = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(754, 680)
+        Me.ReportViewer1.Size = New System.Drawing.Size(884, 761)
         Me.ReportViewer1.TabIndex = 0
         '
         '今日挂号报表
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(771, 704)
+        Me.ClientSize = New System.Drawing.Size(884, 761)
         Me.Controls.Add(Me.ReportViewer1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(900, 800)
         Me.Name = "今日挂号报表"
         Me.ShowIcon = False
         Me.Text = "今日挂号报表"
